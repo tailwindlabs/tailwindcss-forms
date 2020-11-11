@@ -1,0 +1,28 @@
+{
+  "name": "@tailwindcss/forms",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "https://github.com/tailwindlabs/tailwindcss-forms",
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "scripts": {
+    "prepublishOnly": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "clean-css": "^4.2.1",
+    "postcss": "^7.0.17",
+    "tailwindcss": "^2.0.0-alpha.14"
+  },
+  "dependencies": {
+    "mini-svg-data-uri": "^1.2.3"
+  }
+}
