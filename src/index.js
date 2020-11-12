@@ -65,12 +65,12 @@ const forms = plugin(function ({ addBase, theme }) {
     },
 
     select: {
-      'background-image': `url(${svgToDataUri(
+      'background-image': `url("${svgToDataUri(
         `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme(
           'colors.gray.400',
           colors.gray[400]
         )}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
-      )})`,
+      )}")`,
       'background-position': `right ${spacing[2]} center`,
       'background-repeat': `no-repeat`,
       'background-size': `1.5em 1.5em`,
@@ -143,15 +143,15 @@ const forms = plugin(function ({ addBase, theme }) {
     },
 
     [`[type='checkbox']:checked`]: {
-      'background-image': `url(${svgToDataUri(
+      'background-image': `url("${svgToDataUri(
         `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>`
-      )})`,
+      )}")`,
     },
 
     [`[type='radio']:checked`]: {
-      'background-image': `url(${svgToDataUri(
+      'background-image': `url("${svgToDataUri(
         `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3"/></svg>`
-      )})`,
+      )}")`,
     },
 
     [`
@@ -165,9 +165,9 @@ const forms = plugin(function ({ addBase, theme }) {
     },
 
     [`[type='checkbox']:indeterminate`]: {
-      'background-image': `url(${svgToDataUri(
+      'background-image': `url("${svgToDataUri(
         `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h8"/></svg>`
-      )})`,
+      )}")`,
       'border-color': `transparent`,
       'background-color': `currentColor`,
       'background-size': `100% 100%`,
