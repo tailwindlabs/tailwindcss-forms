@@ -55,8 +55,6 @@ Currently we add basic utility-friendly form styles for the following form eleme
 - `select[multiple]`
 - `textarea`
 
-**Note that for text inputs, you must add the `type="text"` attribute for these styles to take effect.** This is a necessary trade-off to avoid relying on the overly greedy `input` selector and unintentionally styling elements we don't have solutions for yet, like `input[type="range"]` for example.
-
 Every element has been normalized/reset in a way that they look pretty great without doing anything to them at all:
 
 ```html
