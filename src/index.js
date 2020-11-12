@@ -7,6 +7,7 @@ const { colors, spacing, borderWidth, borderRadius, outline } = defaultTheme
 const forms = plugin(function ({ addBase, theme }) {
   addBase({
     [`
+      input:not([type]),
       [type='text'],
       [type='email'],
       [type='url'],
