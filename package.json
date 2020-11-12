@@ -19,10 +19,10 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "clean-css": "^4.2.1",
-    "postcss": "^7.0.17",
-    "tailwindcss": "^2.0.0-alpha.14"
+    "postcss": "^7.0.17"
   },
   "dependencies": {
+    "tailwindcss": "^2.0.0-alpha.15",
     "mini-svg-data-uri": "^1.2.3"
   }
 }
