@@ -22,7 +22,7 @@
     "postcss": "^7.0.17"
   },
   "dependencies": {
-    "tailwindcss": "^2.0.0-alpha.15",
-    "mini-svg-data-uri": "^1.2.3"
+    "mini-svg-data-uri": "^1.2.3",
+    "tailwindcss": "^2.0.0-alpha.16"
   }
 }

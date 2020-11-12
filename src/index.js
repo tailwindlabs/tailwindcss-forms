@@ -37,17 +37,18 @@ const forms = plugin(function ({ addBase, theme }) {
       '&:focus': {
         outline: outline.none[0],
         'outline-offset': outline.none[1],
-        '--ring-offset-shadow': `0 0 0 var(--ring-offset-width, 0) var(--ring-offset-color, #fff)`,
-        '--ring-shadow': `0 0 0 calc(1px + var(--ring-offset-width, 0px)) var(--ring-color, ${theme(
-          'colors.blue.600',
-          colors.blue[600]
-        )})`,
+        '--ring-inset': 'var(--tailwind-empty,/*!*/ /*!*/)',
+        '--ring-offset-width': '0px',
+        '--ring-offset-color': '#fff',
+        '--ring-color': theme('colors.blue.600', colors.blue[600]),
+        '--ring-offset-shadow': `var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color)`,
+        '--ring-shadow': `var(--ring-inset) 0 0 0 calc(1px + var(--ring-offset-width)) var(--ring-color)`,
         'box-shadow': `var(--ring-offset-shadow), var(--ring-shadow), var(--box-shadow, 0 0 #0000)`,
         'border-color': theme('colors.blue.600', colors.blue[600]),
       },
     },
 
-    '::placeholder': {
+    'input::placeholder, textarea::placeholder': {
       color: theme('colors.gray.400', colors.gray[400]),
       opacity: '1',
     },
@@ -120,11 +121,12 @@ const forms = plugin(function ({ addBase, theme }) {
     `]: {
       outline: outline.none[0],
       'outline-offset': outline.none[1],
-      '--ring-offset-shadow': `0 0 0 var(--ring-offset-width, 2px) var(--ring-offset-color, #fff)`,
-      '--ring-shadow': `0 0 0 calc(2px + var(--ring-offset-width, 2px)) var(--ring-color, ${theme(
-        'colors.blue.600',
-        colors.blue[600]
-      )})`,
+      '--ring-inset': 'var(--tailwind-empty,/*!*/ /*!*/)',
+      '--ring-offset-width': '2px',
+      '--ring-offset-color': '#fff',
+      '--ring-color': theme('colors.blue.600', colors.blue[600]),
+      '--ring-offset-shadow': `var(--ring-inset) 0 0 0 var(--ring-offset-width) var(--ring-offset-color)`,
+      '--ring-shadow': `var(--ring-inset) 0 0 0 calc(2px + var(--ring-offset-width)) var(--ring-color)`,
       'box-shadow': `var(--ring-offset-shadow), var(--ring-shadow), var(--box-shadow, 0 0 #0000)`,
       'border-color': theme('colors.gray.300', colors.gray[300]),
     },
