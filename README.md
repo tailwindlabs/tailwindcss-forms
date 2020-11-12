@@ -31,6 +31,8 @@ module.exports = {
 
 ## Usage
 
+[**View the live demo**](https://tailwindcss-forms.vercel.app/)
+
 All of the basic form elements you use will now have some sensible default styles that are easy to override with utilities.
 
 Currently we add basic utility-friendly form styles for the following form element types:
