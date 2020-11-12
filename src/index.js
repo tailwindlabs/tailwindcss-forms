@@ -56,6 +56,13 @@ const forms = plugin(function ({ addBase, theme }) {
       padding: '0',
     },
 
+    // Unfortunate hack until https://bugs.webkit.org/show_bug.cgi?id=198959 is fixed.
+    // This sucks because users can't change line-height with a utility on date inputs now.
+    // Reference: https://github.com/twbs/bootstrap/pull/31993
+    '::-webkit-date-and-time-value': {
+      'min-height': '1.5em',
+    },
+
     select: {
       'background-image': `url(${svgToDataUri(
         `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme(
