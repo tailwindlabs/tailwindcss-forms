@@ -17,12 +17,12 @@
     "prepublishOnly": "node scripts/build.js"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^10.0.2",
     "clean-css": "^4.2.1",
-    "postcss": "^7.0.17"
+    "postcss": "^8.1.7"
   },
   "dependencies": {
     "mini-svg-data-uri": "^1.2.3",
-    "tailwindcss": "^2.0.0-alpha.16"
+    "tailwindcss": "^2.0.0-alpha.23"
   }
 }
