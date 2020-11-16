@@ -1,8 +1,10 @@
 # @tailwindcss/forms
 
-A plugin that provides basic default form styles that are easy to override with utilities. Hopefully the successor to `@tailwindcss/custom-forms`.
+A plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.
 
 ## Installation
+
+> Note that @tailwindcss/forms is designed for Tailwind CSS v2.0, which is currently in alpha.
 
 Install the plugin from npm:
 
@@ -33,7 +35,7 @@ module.exports = {
 
 [**View the live demo**](https://tailwindcss-forms.vercel.app/)
 
-All of the basic form elements you use will now have some sensible default styles that are easy to override with utilities.
+All of the basic form elements you use will now have some simple default styles that are easy to override with utilities.
 
 Currently we add basic utility-friendly form styles for the following form element types:
 
@@ -57,33 +59,16 @@ Currently we add basic utility-friendly form styles for the following form eleme
 
 **Note that for text inputs, you must add the `type="text"` attribute for these styles to take effect.** This is a necessary trade-off to avoid relying on the overly greedy `input` selector and unintentionally styling elements we don't have solutions for yet, like `input[type="range"]` for example.
 
-Every element has been normalized/reset in a way that they look pretty great without doing anything to them at all:
+Every element has been normalized/reset to a simple visually consistent style that is easy to customize with utilities, even elements like `<select>` or `<input type="checkbox">` that normally need to be reset with `appearance: none` and customized using custom CSS:
 
 ```html
-<!-- This just looks good! -->
-<input type="text">
-```
-
-The real benefit of this plugin however is that all of these elements are easy to modify on the fly with utilities, which is not possible with user agent form styles:
-
-```html
-<!-- You can customize padding on a select element! Oh my god! -->
+<!-- You can actually customize padding on a select element now: -->
 <select class="px-4 py-3 rounded-full">
   <!-- ... -->
 </select>
-```
 
-We've baked in a few useful tricks, like making the checkbox and radio controls use `currentColor` for their checked state, so you can even customize how those look using text color utilities:
-
-```html
-<!-- This will be blue when checked -->
-<input type="checkbox" class="text-blue-500">
-
-<!-- This will be pink when checked -->
-<input type="checkbox" class="text-pink-500">
-
-<!-- This will be green when checked -->
-<input type="checkbox" class="text-green-500">
+<!-- Or change a checkbox color using text color utilities: -->
+<input type="checkbox" class="rounded text-pink-500" />
 ```
 
 More customization examples and best practices coming soon.
