@@ -14,11 +14,18 @@
     "trailingComma": "es5"
   },
   "scripts": {
-    "prepublishOnly": "node scripts/build.js"
+    "dev": "concurrently \"npm run serve\" \"npm run watch\"",
+    "serve": "live-server .",
+    "watch": "chokidar \"./src/**/*.js\" -c \"npm run build\"",
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.2",
+    "chokidar-cli": "^2.1.0",
     "clean-css": "^4.2.1",
+    "concurrently": "^5.3.0",
+    "live-server": "^1.2.1",
     "postcss": "^8.1.7",
     "tailwindcss": "^2.0.0-alpha.25"
   },
