@@ -20,7 +20,7 @@
     "autoprefixer": "^10.0.2",
     "clean-css": "^4.2.1",
     "postcss": "^8.1.7",
-    "tailwindcss": "^2.0.0-alpha.23"
+    "tailwindcss": "^2.0.0-alpha.25"
   },
   "dependencies": {
     "mini-svg-data-uri": "^1.2.3"
