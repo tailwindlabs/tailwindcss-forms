@@ -16,7 +16,7 @@ const forms = plugin.withOptions(function (options) {
         : "[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select"
 
     addBase({
-      [baseSelectors.join(',')]: {
+      [baseSelectors]: {
         appearance: 'none',
         'background-color': '#fff',
         'border-color': theme('colors.gray.500', colors.gray[500]),
