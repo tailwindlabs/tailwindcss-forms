@@ -71,4 +71,24 @@ Every element has been normalized/reset to a simple visually consistent style th
 <input type="checkbox" class="rounded text-pink-500" />
 ```
 
+## Customization
+You can provide a configuration with custom values for the ringColors and borderColors:
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/forms')({
+      colors: {
+        borderColor: '#BADA55',
+        ringColor: '#C0FFEE',
+      }
+    }),
+    // ...
+  ],
+}
+```
+
 More customization examples and best practices coming soon.
