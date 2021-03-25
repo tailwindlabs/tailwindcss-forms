@@ -6,17 +6,20 @@ const { colors, spacing, borderWidth, borderRadius, outline } = defaultTheme
 
 const forms = plugin.withOptions(function (options) {
   return function ({ addBase, theme }) {
-    const swap = function (initial, classes) {
-      return options && options.useFormClasses === true ? classes : initial
+    const strategy = options && options.strategy === 'class' ? 'class' : 'base'
+
+    const swap = function (baseSelectors, classSelectors) {
+      return strategy === 'class' ? classSelectors : baseSelectors
     }
 
-    const baseSelectors =
-      (options && options.useFormClasses) === true
-        ? '.form-input, .form-textarea, .form-select'
-        : "[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select"
+    const baseSelectors = {
+      class: '.form-input, .form-textarea, .form-select',
+      base:
+        "[type='text'],[type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select",
+    }
 
     addBase({
-      [baseSelectors]: {
+      [baseSelectors[strategy]]: {
         appearance: 'none',
         'background-color': '#fff',
         'border-color': theme('colors.gray.500', colors.gray[500]),
