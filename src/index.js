@@ -13,7 +13,7 @@ const forms = plugin.withOptions(function (options) {
     }
 
     const baseSelectors = {
-      class: '.form-input, .form-textarea, .form-select',
+      class: '.form-input, .form-textarea, .form-select, .form-multiselect',
       base:
         "[type='text'],[type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select",
     }
@@ -81,7 +81,7 @@ const forms = plugin.withOptions(function (options) {
         'color-adjust': `exact`,
       },
 
-      [swap(`[multiple]`, `.form-select[multiple], .form-input[multiple]`)]: {
+      [swap(`[multiple]`, `.form-multiselect, .form-input[multiple]`)]: {
         'background-image': 'initial',
         'background-position': 'initial',
         'background-repeat': 'unset',
@@ -180,7 +180,7 @@ const forms = plugin.withOptions(function (options) {
         'background-color': 'currentColor',
       },
 
-      [swap(`[type='file']`, `.form-input[type='file']`)]: {
+      [swap(`[type='file']`, `.form-file`)]: {
         background: 'unset',
         'border-color': 'inherit',
         'border-width': '0',
@@ -190,7 +190,7 @@ const forms = plugin.withOptions(function (options) {
         'line-height': 'inherit',
       },
 
-      [swap(`[type='file']:focus`, `.form-input[type='file']:focus`)]: {
+      [swap(`[type='file']:focus`, `.form-file:focus`)]: {
         outline: `1px solid ButtonText`,
         outline: `1px auto -webkit-focus-ring-color`,
       },
