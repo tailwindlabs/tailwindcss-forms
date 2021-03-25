@@ -37,27 +37,41 @@ module.exports = {
 
 All of the basic form elements you use will now have some simple default styles that are easy to override with utilities.
 
-Currently we add basic utility-friendly form styles for the following form element types:
+There's currently two options you can choose in how we we add basic utility-friendly form styles:
 
-- `input[type='text']`
-- `input[type='password']`
-- `input[type='email']`
-- `input[type='number']`
-- `input[type='url']`
-- `input[type='date']`
-- `input[type='datetime-local']`
-- `input[type='month']`
-- `input[type='week']`
-- `input[type='time']`
-- `input[type='search']`
-- `input[type='tel']`
-- `input[type='checkbox']`
-- `input[type='radio']`
-- `select`
-- `select[multiple]`
-- `textarea`
+- `base` - The default selector strategy
+- `class` - Requires a `form-` class to be applied to the form element in order for styles to be applied
 
-**Note that for text inputs, you must add the `type="text"` attribute for these styles to take effect.** This is a necessary trade-off to avoid relying on the overly greedy `input` selector and unintentionally styling elements we don't have solutions for yet, like `input[type="range"]` for example.
+```
+plugins: [
+ require("@tailwindcss/forms")({
+   strategy: 'class',
+ }),
+],
+```
+
+| Base                      | Class              |
+| ------------------------- | ------------------ |
+| `[type='text']`           | `form-input`       |
+| `[type='email']`          | `form-input`       |
+| `[type='url']`            | `form-input`       |
+| `[type='password']`       | `form-input`       |
+| `[type='number']`         | `form-input`       |
+| `[type='date']`           | `form-input`       |
+| `[type='datetime-local']` | `form-input`       |
+| `[type='month']`          | `form-input`       |
+| `[type='search']`         | `form-input`       |
+| `[type='tel']`            | `form-input`       |
+| `[type='time']`           | `form-input`       |
+| `[type='week']`           | `form-input`       |
+| `[multiple]`              | `form-multiselect` |
+| `textarea`                | `form-textarea`    |
+| `select`                  | `form-select`      |
+| `[type='checkbox']`       | `form-checkbox`    |
+| `[type='radio']`          | `form-radio`       |
+| `[type='file']`           | `form-file`        |
+
+**Note that for text inputs, when using the default `base` strategy, you must add the `type="text"` attribute for these styles to take effect.** This is a necessary trade-off to avoid relying on the overly greedy `input` selector and unintentionally styling elements we don't have solutions for yet, like `input[type="range"]` for example.
 
 Every element has been normalized/reset to a simple visually consistent style that is easy to customize with utilities, even elements like `<select>` or `<input type="checkbox">` that normally need to be reset with `appearance: none` and customized using custom CSS:
 
