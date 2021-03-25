@@ -8,193 +8,252 @@ const forms = plugin.withOptions(function (options) {
   return function ({ addBase, theme }) {
     const strategy = options && options.strategy === 'class' ? 'class' : 'base'
 
-    const swap = function (baseSelectors, classSelectors) {
-      return strategy === 'class' ? classSelectors : baseSelectors
-    }
-
-    const baseSelectors = {
-      class: '.form-input, .form-textarea, .form-select, .form-multiselect',
-      base:
-        "[type='text'],[type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select",
-    }
-
-    addBase({
-      [baseSelectors[strategy]]: {
-        appearance: 'none',
-        'background-color': '#fff',
-        'border-color': theme('colors.gray.500', colors.gray[500]),
-        'border-width': borderWidth['DEFAULT'],
-        'border-radius': borderRadius.none,
-        'padding-top': spacing[2],
-        'padding-right': spacing[3],
-        'padding-bottom': spacing[2],
-        'padding-left': spacing[3],
-        'font-size': baseFontSize,
-        'line-height': baseLineHeight,
-        '&:focus': {
+    const rules = [
+      {
+        base: [
+          "[type='text']",
+          "[type='email']",
+          "[type='url']",
+          "[type='password']",
+          "[type='number']",
+          "[type='date']",
+          "[type='datetime-local']",
+          "[type='month']",
+          "[type='search']",
+          "[type='tel']",
+          "[type='time']",
+          "[type='week']",
+          '[multiple]',
+          'textarea',
+          'select',
+        ],
+        class: ['.form-input', '.form-textarea', '.form-select', '.form-multiselect'],
+        styles: {
+          appearance: 'none',
+          'background-color': '#fff',
+          'border-color': theme('colors.gray.500', colors.gray[500]),
+          'border-width': borderWidth['DEFAULT'],
+          'border-radius': borderRadius.none,
+          'padding-top': spacing[2],
+          'padding-right': spacing[3],
+          'padding-bottom': spacing[2],
+          'padding-left': spacing[3],
+          'font-size': baseFontSize,
+          'line-height': baseLineHeight,
+          '&:focus': {
+            outline: outline.none[0],
+            'outline-offset': outline.none[1],
+            '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
+            '--tw-ring-offset-width': '0px',
+            '--tw-ring-offset-color': '#fff',
+            '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
+            '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
+            '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
+            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+            'border-color': theme('colors.blue.600', colors.blue[600]),
+          },
+        },
+      },
+      {
+        base: ['input::placeholder', 'textarea::placeholder'],
+        class: ['.form-input::placeholder', '.form-textarea::placeholder'],
+        styles: {
+          color: theme('colors.gray.500', colors.gray[500]),
+          opacity: '1',
+        },
+      },
+      {
+        base: ['::-webkit-datetime-edit-fields-wrapper'],
+        class: ['.form-input::-webkit-datetime-edit-fields-wrapper'],
+        styles: {
+          padding: '0',
+        },
+      },
+      {
+        // Unfortunate hack until https://bugs.webkit.org/show_bug.cgi?id=198959 is fixed.
+        // This sucks because users can't change line-height with a utility on date inputs now.
+        // Reference: https://github.com/twbs/bootstrap/pull/31993
+        base: ['::-webkit-date-and-time-value'],
+        class: ['.form-input::-webkit-date-and-time-value'],
+        styles: {
+          'min-height': '1.5em',
+        },
+      },
+      {
+        base: ['select'],
+        class: ['.form-select'],
+        styles: {
+          'background-image': `url("${svgToDataUri(
+            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme(
+              'colors.gray.500',
+              colors.gray[500]
+            )}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
+          )}")`,
+          'background-position': `right ${spacing[2]} center`,
+          'background-repeat': `no-repeat`,
+          'background-size': `1.5em 1.5em`,
+          'padding-right': spacing[10],
+          'color-adjust': `exact`,
+        },
+      },
+      {
+        base: ['[multiple]'],
+        class: ['.form-multiselect'],
+        styles: {
+          'background-image': 'initial',
+          'background-position': 'initial',
+          'background-repeat': 'unset',
+          'background-size': 'initial',
+          'padding-right': spacing[3],
+          'color-adjust': 'unset',
+        },
+      },
+      {
+        base: [`[type='checkbox']`, `[type='radio']`],
+        class: ['.form-checkbox', '.form-radio'],
+        styles: {
+          appearance: 'none',
+          padding: '0',
+          'color-adjust': 'exact',
+          display: 'inline-block',
+          'vertical-align': 'middle',
+          'background-origin': 'border-box',
+          'user-select': 'none',
+          'flex-shrink': '0',
+          height: spacing[4],
+          width: spacing[4],
+          color: theme('colors.blue.600', colors.blue[600]),
+          'background-color': '#fff',
+          'border-color': theme('colors.gray.500', colors.gray[500]),
+          'border-width': borderWidth['DEFAULT'],
+        },
+      },
+      {
+        base: [`[type='checkbox']`],
+        class: ['.form-checkbox'],
+        styles: {
+          'border-radius': borderRadius['none'],
+        },
+      },
+      {
+        base: [`[type='radio']`],
+        class: ['.form-radio'],
+        styles: {
+          'border-radius': '100%',
+        },
+      },
+      {
+        base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
+        class: ['.form-checkbox:focus', '.form-radio:focus'],
+        styles: {
           outline: outline.none[0],
           'outline-offset': outline.none[1],
           '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
-          '--tw-ring-offset-width': '0px',
+          '--tw-ring-offset-width': '2px',
           '--tw-ring-offset-color': '#fff',
           '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
           '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
-          '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
+          '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
           'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
-          'border-color': theme('colors.blue.600', colors.blue[600]),
         },
       },
-
-      [swap(
-        `input::placeholder, textarea::placeholder`,
-        `.form-input::placeholder .form-textarea::placeholder`
-      )]: {
-        color: theme('colors.gray.500', colors.gray[500]),
-        opacity: '1',
+      {
+        base: [`[type='checkbox']:checked`, `[type='radio']:checked`],
+        class: ['.form-checkbox:checked', '.form-radio:checked'],
+        styles: {
+          'border-color': `transparent`,
+          'background-color': `currentColor`,
+          'background-size': `100% 100%`,
+          'background-position': `center`,
+          'background-repeat': `no-repeat`,
+        },
       },
-
-      [swap(
-        `::-webkit-datetime-edit-fields-wrapper`,
-        `.form-input::-webkit-datetime-edit-fields-wrapper`
-      )]: {
-        padding: '0',
+      {
+        base: [`[type='checkbox']:checked`],
+        class: ['.form-checkbox:checked'],
+        styles: {
+          'background-image': `url("${svgToDataUri(
+            `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>`
+          )}")`,
+        },
       },
-
-      // Unfortunate hack until https://bugs.webkit.org/show_bug.cgi?id=198959 is fixed.
-      // This sucks because users can't change line-height with a utility on date inputs now.
-      // Reference: https://github.com/twbs/bootstrap/pull/31993
-      [swap(`::-webkit-date-and-time-value`, `.form-input::-webkit-date-and-time-value`)]: {
-        'min-height': '1.5em',
+      {
+        base: [`[type='radio']:checked`],
+        class: ['.form-radio:checked'],
+        styles: {
+          'background-image': `url("${svgToDataUri(
+            `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3"/></svg>`
+          )}")`,
+        },
       },
-
-      [swap(`select`, `.form-select`)]: {
-        'background-image': `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme(
-            'colors.gray.500',
-            colors.gray[500]
-          )}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
-        )}")`,
-        'background-position': `right ${spacing[2]} center`,
-        'background-repeat': `no-repeat`,
-        'background-size': `1.5em 1.5em`,
-        'padding-right': spacing[10],
-        'color-adjust': `exact`,
+      {
+        base: [
+          `[type='checkbox']:checked:hover`,
+          `[type='checkbox']:checked:focus`,
+          `[type='radio']:checked:hover`,
+          `[type='radio']:checked:focus`,
+        ],
+        class: [
+          '.form-checkbox:checked:hover',
+          '.form-checkbox:checked:focus',
+          '.form-radio:checked:hover',
+          '.form-radio:check:focus',
+        ],
+        styles: {
+          'border-color': 'transparent',
+          'background-color': 'currentColor',
+        },
       },
-
-      [swap(`[multiple]`, `.form-multiselect, .form-input[multiple]`)]: {
-        'background-image': 'initial',
-        'background-position': 'initial',
-        'background-repeat': 'unset',
-        'background-size': 'initial',
-        'padding-right': spacing[3],
-        'color-adjust': 'unset',
+      {
+        base: [`[type='checkbox']:indeterminate`],
+        class: ['.form-checkbox:indeterminate'],
+        styles: {
+          'background-image': `url("${svgToDataUri(
+            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h8"/></svg>`
+          )}")`,
+          'border-color': `transparent`,
+          'background-color': `currentColor`,
+          'background-size': `100% 100%`,
+          'background-position': `center`,
+          'background-repeat': `no-repeat`,
+        },
       },
-
-      [swap(`[type='checkbox'], [type='radio']`, `.form-checkbox, .form-radio`)]: {
-        appearance: 'none',
-        padding: '0',
-        'color-adjust': 'exact',
-        display: 'inline-block',
-        'vertical-align': 'middle',
-        'background-origin': 'border-box',
-        'user-select': 'none',
-        'flex-shrink': '0',
-        height: spacing[4],
-        width: spacing[4],
-        color: theme('colors.blue.600', colors.blue[600]),
-        'background-color': '#fff',
-        'border-color': theme('colors.gray.500', colors.gray[500]),
-        'border-width': borderWidth['DEFAULT'],
+      {
+        base: [`[type='checkbox']:indeterminate:hover`, `[type='checkbox']:indeterminate:focus`],
+        class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus'],
+        styles: {
+          'border-color': 'transparent',
+          'background-color': 'currentColor',
+        },
       },
-
-      [swap(`[type='checkbox']`, `.form-checkbox`)]: {
-        'border-radius': borderRadius['none'],
+      {
+        base: [`[type='file']`],
+        class: ['.form-file'],
+        styles: {
+          background: 'unset',
+          'border-color': 'inherit',
+          'border-width': '0',
+          'border-radius': '0',
+          padding: '0',
+          'font-size': 'unset',
+          'line-height': 'inherit',
+        },
       },
-
-      [swap(`[type='radio']`, `.form-radio`)]: {
-        'border-radius': '100%',
+      {
+        base: [`[type='file']:focus`],
+        class: ['.form-file:focus'],
+        styles: {
+          outline: `1px solid ButtonText`,
+          outline: `1px auto -webkit-focus-ring-color`,
+        },
       },
+    ]
 
-      [swap(
-        `[type='checkbox']:focus, [type='radio']:focus`,
-        `.form-checkbox:focus, .form-radio:focus`
-      )]: {
-        outline: outline.none[0],
-        'outline-offset': outline.none[1],
-        '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
-        '--tw-ring-offset-width': '2px',
-        '--tw-ring-offset-color': '#fff',
-        '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
-        '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
-        '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-        'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
-      },
-
-      [swap(
-        `[type='checkbox']:checked, [type='radio']:checked`,
-        `.form-checkbox:checked, .form-radio:checked`
-      )]: {
-        'border-color': `transparent`,
-        'background-color': `currentColor`,
-        'background-size': `100% 100%`,
-        'background-position': `center`,
-        'background-repeat': `no-repeat`,
-      },
-
-      [swap(`[type='checkbox']:checked`, `.form-checkbox:checked`)]: {
-        'background-image': `url("${svgToDataUri(
-          `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/></svg>`
-        )}")`,
-      },
-
-      [swap(`[type='radio']:checked`, `.form-radio:checked`)]: {
-        'background-image': `url("${svgToDataUri(
-          `<svg viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="3"/></svg>`
-        )}")`,
-      },
-
-      [swap(
-        `[type='checkbox']:checked:hover, [type='checkbox']:checked:focus, [type='radio']:checked:hover, [type='radio']:checked:focus`,
-        `.form-checkbox:checked:hover, .form-checkbox:checked:focus, .form-radio:checked:hover, .form-radio:check:focus`
-      )]: {
-        'border-color': 'transparent',
-        'background-color': 'currentColor',
-      },
-
-      [swap(`[type='checkbox']:indeterminate`, `.form-checkbox:indeterminate`)]: {
-        'background-image': `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h8"/></svg>`
-        )}")`,
-        'border-color': `transparent`,
-        'background-color': `currentColor`,
-        'background-size': `100% 100%`,
-        'background-position': `center`,
-        'background-repeat': `no-repeat`,
-      },
-
-      [swap(
-        `[type='checkbox']:indeterminate:hover, [type='checkbox']:indeterminate:focus`,
-        `.form-checkbox:indeterminate:hover, .form-checkbox:indeterminate:focus`
-      )]: {
-        'border-color': 'transparent',
-        'background-color': 'currentColor',
-      },
-
-      [swap(`[type='file']`, `.form-file`)]: {
-        background: 'unset',
-        'border-color': 'inherit',
-        'border-width': '0',
-        'border-radius': '0',
-        padding: '0',
-        'font-size': 'unset',
-        'line-height': 'inherit',
-      },
-
-      [swap(`[type='file']:focus`, `.form-file:focus`)]: {
-        outline: `1px solid ButtonText`,
-        outline: `1px auto -webkit-focus-ring-color`,
-      },
-    })
+    for (const rule of rules) {
+      addBase({
+        [rule[strategy]]: rule.styles,
+      })
+    }
   }
 })
 
