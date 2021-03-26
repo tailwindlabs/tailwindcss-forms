@@ -42,7 +42,8 @@ There's currently two options you can choose in how we we add basic utility-frie
 - `base` - The default selector strategy
 - `class` - Requires a `form-` class to be applied to the form element in order for styles to be applied
 
-```
+```js
+// tailwind.config.js
 plugins: [
  require("@tailwindcss/forms")({
    strategy: 'class',
