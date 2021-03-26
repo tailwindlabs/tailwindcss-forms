@@ -4,9 +4,9 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.base
 const { colors, spacing, borderWidth, borderRadius, outline } = defaultTheme
 
-const forms = plugin.withOptions(function (options) {
+const forms = plugin.withOptions(function (options = { strategy: 'class' }) {
   return function ({ addBase, theme }) {
-    const strategy = options && options.strategy === 'class' ? 'class' : 'base'
+    const strategy = options.strategy
 
     const rules = [
       {
