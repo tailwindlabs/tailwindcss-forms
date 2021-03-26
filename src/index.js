@@ -249,11 +249,14 @@ const forms = plugin.withOptions(function (options = { strategy: 'class' }) {
       },
     ]
 
-    for (const rule of rules) {
-      addBase({
-        [rule[strategy]]: rule.styles,
+    addBase(
+      rules.map((rule) => {
+        if (rule[strategy] === null) {
+          return null
+        }
+        return { [rule[strategy]]: rule.styles }
       })
-    }
+    )
   }
 })
 
