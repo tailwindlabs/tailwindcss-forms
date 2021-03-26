@@ -98,7 +98,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'class' }) {
       },
       {
         base: ['[multiple]'],
-        class: ['.form-multiselect'],
+        class: null,
         styles: {
           'background-image': 'initial',
           'background-position': 'initial',
@@ -228,7 +228,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'class' }) {
       },
       {
         base: [`[type='file']`],
-        class: ['.form-file'],
+        class: null,
         styles: {
           background: 'unset',
           'border-color': 'inherit',
@@ -241,7 +241,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'class' }) {
       },
       {
         base: [`[type='file']:focus`],
-        class: ['.form-file:focus'],
+        class: null,
         styles: {
           outline: `1px solid ButtonText`,
           outline: `1px auto -webkit-focus-ring-color`,
