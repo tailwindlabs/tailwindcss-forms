@@ -250,12 +250,15 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
     ]
 
     addBase(
-      rules.map((rule) => {
-        if (rule[strategy] === null) {
-          return null
-        }
-        return { [rule[strategy]]: rule.styles }
-      })
+      rules
+        .map((rule) => {
+          if (rule[strategy] === null) {
+            return null
+          }
+
+          return { [rule[strategy]]: rule.styles }
+        })
+        .filter(Boolean)
     )
   }
 })
