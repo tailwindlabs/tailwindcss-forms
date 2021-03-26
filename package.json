@@ -1,6 +1,6 @@
 {
   "name": "@tailwindcss/forms",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "src/index.js",
   "license": "MIT",
   "repository": "https://github.com/tailwindlabs/tailwindcss-forms",
@@ -21,7 +21,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "tailwindcss":">=2.0.0"
+    "tailwindcss": ">=2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.2",
