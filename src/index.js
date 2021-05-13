@@ -252,11 +252,14 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
     addBase(
       rules
         .map((rule) => {
-          if (rule[strategy] === null) {
-            return null
-          }
+          if (strategy !== 'both' && rule[strategy] === null) return null
+          
+          const base = rule['base']        
+          const classes = rule['class']
+          const both = base && classes ? [...base, ...classes] : base ?? classes 
+          const selectors = strategy === 'both' ? both : rule[strategy]
 
-          return { [rule[strategy]]: rule.styles }
+          return { [selectors]: rule.styles }
         })
         .filter(Boolean)
     )
