@@ -1,6 +1,5 @@
 name: Bug Report
 description: Create a bug report for @tailwindcss/forms.
-title: ''
 labels: []
 body:
   - type: input
