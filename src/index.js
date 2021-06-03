@@ -197,7 +197,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           '.form-checkbox:checked:hover',
           '.form-checkbox:checked:focus',
           '.form-radio:checked:hover',
-          '.form-radio:check:focus',
+          '.form-radio:checked:focus',
         ],
         styles: {
           'border-color': 'transparent',
