@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Nothing yet!
 
+## [0.3.3] - 2021-06-03
+
+### Fixed
+
+- Fix typo in selector when using `class` strategy that breaks background colors on checkboxes and radio buttons ([#72](https://github.com/tailwindlabs/tailwindcss-forms/pull/72))
+
 ## [0.3.2] - 2021-03-26
 
 ### Fixed
@@ -68,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.2...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...HEAD
+[0.3.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.2.1...v0.3.0
