@@ -39,6 +39,7 @@ All of the basic form elements you use will now have some simple default styles 
 
 Currently we add basic utility-friendly form styles for the following form element types:
 
+- `input` (with no type specified)
 - `input[type='text']`
 - `input[type='password']`
 - `input[type='email']`
@@ -56,8 +57,6 @@ Currently we add basic utility-friendly form styles for the following form eleme
 - `select`
 - `select[multiple]`
 - `textarea`
-
-**Note that for text inputs, you must add the `type="text"` attribute for these styles to take effect.** This is a necessary trade-off to avoid relying on the overly greedy `input` selector and unintentionally styling elements we don't have solutions for yet, like `input[type="range"]` for example.
 
 Every element has been normalized/reset to a simple visually consistent style that is easy to customize with utilities, even elements like `<select>` or `<input type="checkbox">` that normally need to be reset with `appearance: none` and customized using custom CSS:
 

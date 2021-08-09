@@ -11,6 +11,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
     const rules = [
       {
         base: [
+          "input:where(:not([type]))",
           "[type='text']",
           "[type='email']",
           "[type='url']",
