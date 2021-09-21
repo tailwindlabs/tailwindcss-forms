@@ -40,6 +40,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'padding-left': spacing[3],
           'font-size': baseFontSize,
           'line-height': baseLineHeight,
+          '--tw-shadow': '0 0 #0000',
           '&:focus': {
             outline: outline.none[0],
             'outline-offset': outline.none[1],
@@ -49,7 +50,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
             '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
             '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
             '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
             'border-color': theme('colors.blue.600', colors.blue[600]),
           },
         },
@@ -126,6 +127,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'background-color': '#fff',
           'border-color': theme('colors.gray.500', colors.gray[500]),
           'border-width': borderWidth['DEFAULT'],
+          '--tw-shadow': '0 0 #0000',
         },
       },
       {
@@ -154,7 +156,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
           '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
           '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-          'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+          'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
         },
       },
       {
