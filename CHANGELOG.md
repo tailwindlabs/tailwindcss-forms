@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Fix compatibility with `optimizeUniversalDefaults` experimental feature in Tailwind CSS v2.2 ([#81](https://github.com/tailwindlabs/tailwindcss-forms/pull/81))
 
 ## [0.3.3] - 2021-06-03
 
