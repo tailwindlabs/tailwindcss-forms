@@ -95,7 +95,6 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'background-size': `1.5em 1.5em`,
           'padding-right': spacing[10],
           'color-adjust': `exact`,
-          '--tw-shadow': '0 0 #0000',
         },
       },
       {
