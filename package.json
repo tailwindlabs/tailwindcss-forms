@@ -1,6 +1,6 @@
 {
   "name": "@tailwindcss/forms",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "src/index.js",
   "license": "MIT",
   "repository": "https://github.com/tailwindlabs/tailwindcss-forms",
