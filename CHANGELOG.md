@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Nothing yet!
+
+## [0.3.4] - 2021-09-28
+
 ### Fixed
 
 - Fix compatibility with `optimizeUniversalDefaults` experimental feature in Tailwind CSS v2.2 ([#81](https://github.com/tailwindlabs/tailwindcss-forms/pull/81))
@@ -76,7 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.4...HEAD
+[0.3.4]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.0...v0.3.1
