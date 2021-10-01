@@ -16,12 +16,11 @@
   "scripts": {
     "dev": "concurrently \"npm run serve\" \"npm run watch\"",
     "serve": "live-server .",
-    "watch": "chokidar \"./src/**/*.js\" -c \"npm run build\"",
-    "build": "node scripts/build.js",
-    "prepublishOnly": "npm run build"
+    "watch": "npm run build -- -w",
+    "build": "tailwindcss -o dist/tailwind.css"
   },
   "peerDependencies": {
-    "tailwindcss": ">=2.0.0"
+    "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.2",
@@ -30,7 +29,7 @@
     "concurrently": "^5.3.0",
     "live-server": "^1.2.1",
     "postcss": "^8.1.7",
-    "tailwindcss": "insiders"
+    "tailwindcss": "next"
   },
   "dependencies": {
     "mini-svg-data-uri": "^1.2.3"
