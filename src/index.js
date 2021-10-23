@@ -99,6 +99,15 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
         },
       },
       {
+        base: ['[dir="rtl"] select'],
+        class: ['.form-select'],
+        styles: {
+          'background-position': `left ${spacing[2]} center`,
+          'padding-left': spacing[10],
+          'padding-right': spacing[3],
+        },
+      },
+      {
         base: ['[multiple]'],
         class: null,
         styles: {
