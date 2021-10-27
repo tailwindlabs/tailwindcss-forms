@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.base
-const { spacing, borderWidth, borderRadius, outline } = defaultTheme
+const { spacing, borderWidth, borderRadius } = defaultTheme
 
 const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
   return function ({ addBase, theme }) {
@@ -43,8 +43,8 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'line-height': baseLineHeight,
           '--tw-shadow': '0 0 #0000',
           '&:focus': {
-            outline: outline.none[0],
-            'outline-offset': outline.none[1],
+            outline: '2px solid transparent',
+            'outline-offset': '2px',
             '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
             '--tw-ring-offset-width': '0px',
             '--tw-ring-offset-color': '#fff',
@@ -149,8 +149,8 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
         base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
-          outline: outline.none[0],
-          'outline-offset': outline.none[1],
+          outline: '2px solid transparent',
+          'outline-offset': '2px',
           '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
           '--tw-ring-offset-width': '2px',
           '--tw-ring-offset-color': '#fff',
