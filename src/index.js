@@ -6,7 +6,7 @@ const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.bas
 const { spacing, borderWidth, borderRadius } = defaultTheme
 
 const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
-  return function ({ addBase, theme }) {
+  return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy
 
     const rules = [
