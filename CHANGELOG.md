@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Nothing yet!
+- Nothing yet!
+
+## [0.4.0] - 2021-12-09
+
+### Changed
+
+- Update color palette references for v3 ([#83](https://github.com/tailwindlabs/tailwindcss-forms/pull/83))
+- Don't read outline.none value from config ([#89](https://github.com/tailwindlabs/tailwindcss-forms/pull/89))
 
 ## [0.3.4] - 2021-09-28
 
@@ -80,7 +87,8 @@ Nothing yet!
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.4...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.4.0
 [0.3.4]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.3.4
 [0.3.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.2...v0.3.3
 [0.3.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.1...v0.3.2
