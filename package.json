@@ -25,7 +25,7 @@
   "devDependencies": {
     "concurrently": "^5.3.0",
     "live-server": "^1.2.1",
-    "tailwindcss": "next"
+    "tailwindcss": "^3.0.2"
   },
   "dependencies": {
     "mini-svg-data-uri": "^1.2.3"
