@@ -4,8 +4,6 @@ A plugin that provides a basic reset for form styles that makes form elements ea
 
 ## Installation
 
-> Note that @tailwindcss/forms is designed for Tailwind CSS v3.0.
-
 Install the plugin from npm:
 
 ```sh
