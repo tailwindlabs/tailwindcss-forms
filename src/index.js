@@ -17,6 +17,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           "[type='url']",
           "[type='password']",
           "[type='number']",
+          "[type='currency']",
           "[type='date']",
           "[type='datetime-local']",
           "[type='month']",
