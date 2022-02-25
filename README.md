@@ -7,11 +7,7 @@ A plugin that provides a basic reset for form styles that makes form elements ea
 Install the plugin from npm:
 
 ```sh
-# Using npm
-npm install @tailwindcss/forms
-
-# Using Yarn
-yarn add @tailwindcss/forms
+npm install -D @tailwindcss/forms
 ```
 
 Then add the plugin to your `tailwind.config.js` file:
