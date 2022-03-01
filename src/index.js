@@ -82,6 +82,37 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
         },
       },
       {
+        // In Safari on macOS date time inputs are 4px taller than normal inputs
+        // This is because there is extra padding on the datetime-edit and datetime-edit-{part}-field pseudo elements
+        // See https://github.com/tailwindlabs/tailwindcss-forms/issues/95
+        base: [
+          '::-webkit-datetime-edit',
+          '::-webkit-datetime-edit-year-field',
+          '::-webkit-datetime-edit-month-field',
+          '::-webkit-datetime-edit-day-field',
+          '::-webkit-datetime-edit-hour-field',
+          '::-webkit-datetime-edit-minute-field',
+          '::-webkit-datetime-edit-second-field',
+          '::-webkit-datetime-edit-millisecond-field',
+          '::-webkit-datetime-edit-meridiem-field',
+        ],
+        class: [
+          '.form-input::-webkit-datetime-edit',
+          '.form-input::-webkit-datetime-edit-year-field',
+          '.form-input::-webkit-datetime-edit-month-field',
+          '.form-input::-webkit-datetime-edit-day-field',
+          '.form-input::-webkit-datetime-edit-hour-field',
+          '.form-input::-webkit-datetime-edit-minute-field',
+          '.form-input::-webkit-datetime-edit-second-field',
+          '.form-input::-webkit-datetime-edit-millisecond-field',
+          '.form-input::-webkit-datetime-edit-meridiem-field',
+        ],
+        styles: {
+          'padding-top': 0,
+          'padding-bottom': 0,
+        },
+      },
+      {
         base: ['select'],
         class: ['.form-select'],
         styles: {
