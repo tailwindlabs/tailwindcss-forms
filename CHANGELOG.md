@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Use `addComponents` for class strategy ([#91](https://github.com/tailwindlabs/tailwindcss-forms/pull/91))
+- Fix extra height on Safari date/time inputs  ([#109](https://github.com/tailwindlabs/tailwindcss-forms/pull/109))
 
 ## [0.4.0] - 2021-12-09
 
