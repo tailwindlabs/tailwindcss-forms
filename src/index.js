@@ -5,7 +5,7 @@ const colors = require('tailwindcss/colors')
 const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.base
 const { spacing, borderWidth, borderRadius } = defaultTheme
 
-const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
+const forms = plugin.withOptions(function (options = { strategy: '' }) {
   return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy
 
@@ -283,20 +283,17 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
       },
     ]
 
-    const strategyRules = rules
+    const getStrategyRules = (strategy) => rules
     .map((rule) => {
-      if (rule[strategy] === null) {
-        return null
-      }
+      if (rule[strategy] === null) return null
 
       return { [rule[strategy]]: rule.styles }
     })
     .filter(Boolean)
+    
+    if (strategy !== 'class') addBase(getStrategyRules('base'))
+    if (strategy !== 'base') addComponents(getStrategyRules('class'))
 
-    ;({
-      'base': addBase,
-      'class': addComponents
-    })[strategy](strategyRules)
   }
 })
 
