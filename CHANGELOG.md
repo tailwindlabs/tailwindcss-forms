@@ -7,7 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Added
+
+- Remove `dist` folder and related dependencies ([#96](https://github.com/tailwindlabs/tailwindcss-forms/pull/96))
+
+### Fixed
+
+- Use `addComponents` for class strategy ([#91](https://github.com/tailwindlabs/tailwindcss-forms/pull/91))
+- Fix extra height on Safari date/time inputs  ([#109](https://github.com/tailwindlabs/tailwindcss-forms/pull/109))
+
+## [0.4.0] - 2021-12-09
+
+### Changed
+
+- Update color palette references for v3 ([#83](https://github.com/tailwindlabs/tailwindcss-forms/pull/83))
+- Don't read outline.none value from config ([#89](https://github.com/tailwindlabs/tailwindcss-forms/pull/89))
+
+## [0.3.4] - 2021-09-28
+
+### Fixed
+
+- Fix compatibility with `optimizeUniversalDefaults` experimental feature in Tailwind CSS v2.2 ([#81](https://github.com/tailwindlabs/tailwindcss-forms/pull/81))
+
+## [0.3.3] - 2021-06-03
+
+### Fixed
+
+- Fix typo in selector when using `class` strategy that breaks background colors on checkboxes and radio buttons ([#72](https://github.com/tailwindlabs/tailwindcss-forms/pull/72))
+
+## [0.3.2] - 2021-03-26
+
+### Fixed
+
+- Filter `null` rules for JIT compatibility ([b4c4e03](https://github.com/tailwindlabs/tailwindcss-forms/commit/b4c4e039337c3a5599f5b6d9eabbcc8ab9e8c8d9))
 
 ## [0.3.1] - 2021-03-26
 
@@ -62,7 +94,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.1...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.4.0
+[0.3.4]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.3.4
+[0.3.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.2...v0.3.3
+[0.3.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.2.0...v0.2.1

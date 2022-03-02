@@ -1,11 +1,12 @@
 const svgToDataUri = require('mini-svg-data-uri')
 const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.base
-const { colors, spacing, borderWidth, borderRadius, outline } = defaultTheme
+const { spacing, borderWidth, borderRadius } = defaultTheme
 
 const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
-  return function ({ addBase, theme }) {
+  return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy
 
     const rules = [
@@ -40,16 +41,17 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'padding-left': spacing[3],
           'font-size': baseFontSize,
           'line-height': baseLineHeight,
+          '--tw-shadow': '0 0 #0000',
           '&:focus': {
-            outline: outline.none[0],
-            'outline-offset': outline.none[1],
+            outline: '2px solid transparent',
+            'outline-offset': '2px',
             '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
             '--tw-ring-offset-width': '0px',
             '--tw-ring-offset-color': '#fff',
             '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
             '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
             '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
             'border-color': theme('colors.blue.600', colors.blue[600]),
           },
         },
@@ -77,6 +79,37 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
         class: ['.form-input::-webkit-date-and-time-value'],
         styles: {
           'min-height': '1.5em',
+        },
+      },
+      {
+        // In Safari on macOS date time inputs are 4px taller than normal inputs
+        // This is because there is extra padding on the datetime-edit and datetime-edit-{part}-field pseudo elements
+        // See https://github.com/tailwindlabs/tailwindcss-forms/issues/95
+        base: [
+          '::-webkit-datetime-edit',
+          '::-webkit-datetime-edit-year-field',
+          '::-webkit-datetime-edit-month-field',
+          '::-webkit-datetime-edit-day-field',
+          '::-webkit-datetime-edit-hour-field',
+          '::-webkit-datetime-edit-minute-field',
+          '::-webkit-datetime-edit-second-field',
+          '::-webkit-datetime-edit-millisecond-field',
+          '::-webkit-datetime-edit-meridiem-field',
+        ],
+        class: [
+          '.form-input::-webkit-datetime-edit',
+          '.form-input::-webkit-datetime-edit-year-field',
+          '.form-input::-webkit-datetime-edit-month-field',
+          '.form-input::-webkit-datetime-edit-day-field',
+          '.form-input::-webkit-datetime-edit-hour-field',
+          '.form-input::-webkit-datetime-edit-minute-field',
+          '.form-input::-webkit-datetime-edit-second-field',
+          '.form-input::-webkit-datetime-edit-millisecond-field',
+          '.form-input::-webkit-datetime-edit-meridiem-field',
+        ],
+        styles: {
+          'padding-top': 0,
+          'padding-bottom': 0,
         },
       },
       {
@@ -126,6 +159,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           'background-color': '#fff',
           'border-color': theme('colors.gray.500', colors.gray[500]),
           'border-width': borderWidth['DEFAULT'],
+          '--tw-shadow': '0 0 #0000',
         },
       },
       {
@@ -146,15 +180,15 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
         base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
-          outline: outline.none[0],
-          'outline-offset': outline.none[1],
+          outline: '2px solid transparent',
+          'outline-offset': '2px',
           '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
           '--tw-ring-offset-width': '2px',
           '--tw-ring-offset-color': '#fff',
           '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
           '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
           '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-          'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+          'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
         },
       },
       {
@@ -197,7 +231,7 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
           '.form-checkbox:checked:hover',
           '.form-checkbox:checked:focus',
           '.form-radio:checked:hover',
-          '.form-radio:check:focus',
+          '.form-radio:checked:focus',
         ],
         styles: {
           'border-color': 'transparent',
@@ -249,20 +283,20 @@ const forms = plugin.withOptions(function (options = { strategy: 'base' }) {
       },
     ]
 
-    addBase(
-      rules
-        .map((rule) => {
-          if (strategy !== 'both' && rule[strategy] === null) return null
-          
-          const base = rule['base']        
-          const classes = rule['class']
-          const both = base && classes ? [...base, ...classes] : base ?? classes 
-          const selectors = strategy === 'both' ? both : rule[strategy]
+    const strategyRules = rules
+    .map((rule) => {
+      if (rule[strategy] === null) {
+        return null
+      }
 
-          return { [selectors]: rule.styles }
-        })
-        .filter(Boolean)
-    )
+      return { [rule[strategy]]: rule.styles }
+    })
+    .filter(Boolean)
+
+    ;({
+      'base': addBase,
+      'class': addComponents
+    })[strategy](strategyRules)
   }
 })
 

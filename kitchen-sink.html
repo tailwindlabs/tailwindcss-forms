@@ -3,11 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@tailwindcss/forms Kitchen Sink</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@next/dist/base.min.css" />
-    <link rel="stylesheet" href="/dist/forms.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@next/dist/components.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@next/dist/utilities.min.css" />
+    <link rel="stylesheet" href="/dist/tailwind.css" />
   </head>
   <body>
     <div class="antialiased text-gray-900 px-6">
@@ -124,8 +120,8 @@
                 placeholder="Enter some long form content."
               ></textarea>
             </label>
-            <div class="block">
-              <span class="text-gray-700">Checkboxes</span>
+            <fieldset class="block">
+              <legend class="text-gray-700">Checkboxes</legend>
               <div class="mt-2">
                 <div>
                   <label class="inline-flex items-center">
@@ -146,9 +142,9 @@
                   </label>
                 </div>
               </div>
-            </div>
-            <div class="block">
-              <span class="text-gray-700">Radio Buttons</span>
+            </fieldset>
+            <fieldset class="block">
+              <legend class="text-gray-700">Radio Buttons</legend>
               <div class="mt-2">
                 <div>
                   <label class="inline-flex items-center">
@@ -169,7 +165,7 @@
                   </label>
                 </div>
               </div>
-            </div>
+            </fieldset>
           </div>
         </div>
       </div>
