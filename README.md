@@ -69,7 +69,7 @@ More customization examples and best practices coming soon.
 
 ### Using classes to style
 
-In addition to the base styles to automatically style each form element we also generate classes that you can use explicitly. This allows you to style form elements by default and have the ability to style non-form things to more closely match those form elements.
+In addition to the global styles, we also generate a set of corresponding classes which can be used to explicitly apply the form styles to an element. This can be useful in situations where you need to make a non-form element, such as a `<div>`, look like a form element.
 
 ```html
 <input type="email" class="form-input px-4 py-3 rounded-full">
