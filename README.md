@@ -103,7 +103,7 @@ Here is a complete table of the provided `form-*` classes for reference:
 | `[type='checkbox']`       | `form-checkbox`    |
 | `[type='radio']`          | `form-radio`       |
 
-### Using only base styles or only classes
+### Using only global styles or only classes
 
 Although we recommend thinking of this plugin as a "form reset" rather than a collection of form component styles, in some cases our default approach may be too heavy-handed, especially when integrating this plugin into existing projects.
 
