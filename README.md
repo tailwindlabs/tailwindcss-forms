@@ -113,7 +113,8 @@ For situations where the default strategy of generating both the base styles *an
 // tailwind.config.js
 plugins: [
   require("@tailwindcss/forms")({
-    strategy: 'base', // or strategy: 'class',
+    strategy: 'base', // only generate global styles
+    strategy: 'class', // only generate classes
   }),
 ],
 ```
