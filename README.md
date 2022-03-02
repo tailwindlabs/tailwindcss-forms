@@ -107,7 +107,7 @@ Here is a complete table of the provided `form-*` classes for reference:
 
 Although we recommend thinking of this plugin as a "form reset" rather than a collection of form component styles, in some cases our default approach may be too heavy-handed, especially when integrating this plugin into existing projects.
 
-For situations where the default strategy of generating both the base styles *and* classes doesn't work well with your project, you can use `strategy` option to control whether or not form styling is _opt-in_ or applied globally:
+If generating both the global (base) styles and classes doesn't work well with your project, you can use the `strategy` option to limit the plugin to just one of these approaches.
 
 ```js
 // tailwind.config.js
