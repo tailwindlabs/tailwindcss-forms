@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Nothing yet!
+### Changed
+
+- Generate both global styles and classes by default ([#71](https://github.com/tailwindlabs/tailwindcss-forms/pull/71))
 
 ## [0.4.1] - 2022-03-02
 
