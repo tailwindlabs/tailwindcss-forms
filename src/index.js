@@ -277,8 +277,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         base: [`[type='file']:focus`],
         class: null,
         styles: {
-          outline: `1px solid ButtonText`,
-          outline: `1px auto -webkit-focus-ring-color`,
+          outline: [
+            `1px solid ButtonText`,
+            `1px auto -webkit-focus-ring-color`
+          ],
         },
       },
     ]
