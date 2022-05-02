@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Nothing yet!
+### Fixed
+
+- Remove duplicate `outline` property ([#116](https://github.com/tailwindlabs/tailwindcss-forms/pull/116))
 
 ## [0.5.0] - 2022-03-02
 
@@ -24,7 +26,7 @@ Nothing yet!
 ### Fixed
 
 - Use `addComponents` for class strategy ([#91](https://github.com/tailwindlabs/tailwindcss-forms/pull/91))
-- Fix extra height on Safari date/time inputs  ([#109](https://github.com/tailwindlabs/tailwindcss-forms/pull/109))
+- Fix extra height on Safari date/time inputs ([#109](https://github.com/tailwindlabs/tailwindcss-forms/pull/109))
 
 ## [0.4.0] - 2021-12-09
 
