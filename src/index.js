@@ -126,7 +126,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'background-repeat': `no-repeat`,
           'background-size': `1.5em 1.5em`,
           'padding-right': spacing[10],
-          'color-adjust': `exact`,
+          'print-color-adjust': `exact`,
         },
       },
       {
@@ -138,7 +138,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'background-repeat': 'unset',
           'background-size': 'initial',
           'padding-right': spacing[3],
-          'color-adjust': 'unset',
+          'print-color-adjust': 'unset',
         },
       },
       {
@@ -147,7 +147,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         styles: {
           appearance: 'none',
           padding: '0',
-          'color-adjust': 'exact',
+          'print-color-adjust': 'exact',
           display: 'inline-block',
           'vertical-align': 'middle',
           'background-origin': 'border-box',
