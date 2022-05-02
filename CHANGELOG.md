@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Remove duplicate `outline` property ([#116](https://github.com/tailwindlabs/tailwindcss-forms/pull/116))
+- Fix autoprefixer warning about `color-adjust` ([#115](https://github.com/tailwindlabs/tailwindcss-forms/pull/115))
 
 ## [0.5.0] - 2022-03-02
 
