@@ -1,7 +1,9 @@
 module.exports = {
   content: ['./index.html', './kitchen-sink.html'],
   theme: {
-    extend: {},
+    extend: {
+      //
+    },
   },
   plugins: [require('./src')],
 }
