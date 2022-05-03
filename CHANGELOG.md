@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.5.1] - 2022-05-03
+
 ### Fixed
 
 - Remove duplicate `outline` property ([#116](https://github.com/tailwindlabs/tailwindcss-forms/pull/116))
@@ -107,7 +111,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.0...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.3.3...v0.4.0
