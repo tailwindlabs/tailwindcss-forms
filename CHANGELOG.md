@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Added
+
+- Add TypeScript type declarations ([#118](https://github.com/tailwindlabs/tailwindcss-forms/pull/118))
 
 ## [0.5.1] - 2022-05-03
 
