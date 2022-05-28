@@ -122,3 +122,7 @@ plugins: [
 When using the `base` strategy, form elements are styled globally, and no `form-{name}` classes are generated.
 
 When using the `class` strategy, form elements are not styled globally, and instead must be styled using the generated `form-{name}` classes.
+
+## License 
+
+@tailwindcss/forms is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
