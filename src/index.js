@@ -5,6 +5,10 @@ const colors = require('tailwindcss/colors')
 const [baseFontSize, { lineHeight: baseLineHeight }] = defaultTheme.fontSize.base
 const { spacing, borderWidth, borderRadius } = defaultTheme
 
+function resolveColor(color, opacityVariableName) {
+  return color.replace('<alpha-value>', `var(${opacityVariableName}, 1)`)
+}
+
 const forms = plugin.withOptions(function (options = { strategy: undefined }) {
   return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
@@ -32,7 +36,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         styles: {
           appearance: 'none',
           'background-color': '#fff',
-          'border-color': theme('colors.gray.500', colors.gray[500]),
+          'border-color': resolveColor(
+            theme('colors.gray.500', colors.gray[500]),
+            '--tw-border-opacity'
+          ),
           'border-width': borderWidth['DEFAULT'],
           'border-radius': borderRadius.none,
           'padding-top': spacing[2],
@@ -48,11 +55,17 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
             '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
             '--tw-ring-offset-width': '0px',
             '--tw-ring-offset-color': '#fff',
-            '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
+            '--tw-ring-color': resolveColor(
+              theme('colors.blue.600', colors.blue[600]),
+              '--tw-ring-opacity'
+            ),
             '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
             '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
             'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
-            'border-color': theme('colors.blue.600', colors.blue[600]),
+            'border-color': resolveColor(
+              theme('colors.blue.600', colors.blue[600]),
+              '--tw-border-opacity'
+            ),
           },
         },
       },
@@ -60,7 +73,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         base: ['input::placeholder', 'textarea::placeholder'],
         class: ['.form-input::placeholder', '.form-textarea::placeholder'],
         styles: {
-          color: theme('colors.gray.500', colors.gray[500]),
+          color: resolveColor(theme('colors.gray.500', colors.gray[500]), '--tw-text-opacity'),
           opacity: '1',
         },
       },
@@ -117,9 +130,9 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         class: ['.form-select'],
         styles: {
           'background-image': `url("${svgToDataUri(
-            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${theme(
-              'colors.gray.500',
-              colors.gray[500]
+            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${resolveColor(
+              theme('colors.gray.500', colors.gray[500]),
+              '--tw-stroke-opacity'
             )}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
           )}")`,
           'background-position': `right ${spacing[2]} center`,
@@ -155,9 +168,12 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'flex-shrink': '0',
           height: spacing[4],
           width: spacing[4],
-          color: theme('colors.blue.600', colors.blue[600]),
+          color: resolveColor(theme('colors.blue.600', colors.blue[600]), '--tw-text-opacity'),
           'background-color': '#fff',
-          'border-color': theme('colors.gray.500', colors.gray[500]),
+          'border-color': resolveColor(
+            theme('colors.gray.500', colors.gray[500]),
+            '--tw-border-opacity'
+          ),
           'border-width': borderWidth['DEFAULT'],
           '--tw-shadow': '0 0 #0000',
         },
@@ -185,7 +201,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
           '--tw-ring-offset-width': '2px',
           '--tw-ring-offset-color': '#fff',
-          '--tw-ring-color': theme('colors.blue.600', colors.blue[600]),
+          '--tw-ring-color': resolveColor(
+            theme('colors.blue.600', colors.blue[600]),
+            '--tw-ring-opacity'
+          ),
           '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
           '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
           'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
