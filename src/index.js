@@ -144,7 +144,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: ['[multiple]', '[size]:where(:not([size="1"]))'],
-        class: ['.form-select[size]:where(:not([size="1"]))'],
+        class: ['.form-select:where([size]:not([size="1"]))'],
         styles: {
           'background-image': 'initial',
           'background-position': 'initial',
