@@ -127,7 +127,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: ['select'],
-        class: ['.form-select:where([size]:not([size="1"]))'],
+        class: ['.form-select:where([size="1"], :not([size]))'],
         styles: {
           'background-image': `url("${svgToDataUri(
             `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${resolveColor(
