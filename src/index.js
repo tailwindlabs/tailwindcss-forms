@@ -143,7 +143,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: ['[multiple]'],
+        base: ['[multiple]', '[size]:where(:not([size="1"]))'],
         class: null,
         styles: {
           'background-image': 'initial',
