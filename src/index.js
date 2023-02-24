@@ -127,7 +127,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: ['select'],
-        class: ['.form-select:where([size="1"], :not([size]))'],
+        class: ['.form-select'],
         styles: {
           'background-image': `url("${svgToDataUri(
             `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${resolveColor(
@@ -144,7 +144,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: ['[multiple]', '[size]:where(:not([size="1"]))'],
-        class: null,
+        class: ['.form-select[size]:where(:not([size="1"]))'],
         styles: {
           'background-image': 'initial',
           'background-position': 'initial',
