@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Remove chevron for selects with a non-default size ([#137](https://github.com/tailwindlabs/tailwindcss-forms/pull/137))
+- Allow for <input> without `type` ([#141](https://github.com/tailwindlabs/tailwindcss-forms/pull/141))
 
 ## [0.5.3] - 2022-09-02
 
