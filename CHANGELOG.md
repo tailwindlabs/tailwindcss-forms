@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.5.4] - 2023-07-13
+
 ### Fixed
 
 - Remove chevron for selects with a non-default size ([#137](https://github.com/tailwindlabs/tailwindcss-forms/pull/137))
@@ -126,7 +130,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.3...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.4...HEAD
+[0.5.4]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.3...v0.5.4
 [0.5.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.2...v0.5.3
 [0.5.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.0...v0.5.1
