@@ -17,7 +17,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       {
         base: [
           "[type='text']",
-          ":not([type])",
+          "input:not([type])",
           "[type='email']",
           "[type='url']",
           "[type='password']",
