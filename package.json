@@ -1,6 +1,6 @@
 {
   "name": "@tailwindcss/forms",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "license": "MIT",
