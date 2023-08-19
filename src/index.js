@@ -96,6 +96,16 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
+        // In Safari on iOS date and time inputs are centered instead of left-aligned.
+        // Changing the text alignment on the input itself doesn't work. The only
+        // way to fix is using the `-webkit-date-and-time-value` pseudo element.
+        base: ['::-webkit-date-and-time-value'],
+        class: ['.form-input::-webkit-date-and-time-value'],
+        styles: {
+          'text-align': 'left',
+        },
+      },
+      {
         // In Safari on macOS date time inputs are 4px taller than normal inputs
         // This is because there is extra padding on the datetime-edit and datetime-edit-{part}-field pseudo elements
         // See https://github.com/tailwindlabs/tailwindcss-forms/issues/95
