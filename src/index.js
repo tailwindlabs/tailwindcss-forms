@@ -96,13 +96,14 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        // In Safari on iOS date and time inputs are centered instead of left-aligned.
-        // Changing the text alignment on the input itself doesn't work. The only
-        // way to fix is using the `-webkit-date-and-time-value` pseudo element.
+        // In Safari on iOS date and time inputs are centered instead of left-aligned and can't be
+        // changed with `text-align` utilities on the input by default. Resetting this to `inherit`
+        // makes them left-aligned by default and makes it possible to override the alignment with
+        // utility classes without using an arbitrary variant to target the pseudo-elements.
         base: ['::-webkit-date-and-time-value'],
         class: ['.form-input::-webkit-date-and-time-value'],
         styles: {
-          'text-align': 'left',
+          'text-align': 'inherit',
         },
       },
       {
