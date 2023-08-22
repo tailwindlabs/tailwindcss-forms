@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.5.5] - 2023-08-22
+
 ### Fixed
 
 - Fix text alignment on date and time inputs on iOS ([#144](https://github.com/tailwindlabs/tailwindcss-forms/pull/144))
@@ -132,7 +136,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.4...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.5...HEAD
+[0.5.5]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.4...v0.5.5
 [0.5.4]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.3...v0.5.4
 [0.5.3]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.2...v0.5.3
 [0.5.2]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.1...v0.5.2
