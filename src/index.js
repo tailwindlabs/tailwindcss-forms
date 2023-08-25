@@ -17,7 +17,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       {
         base: [
           "[type='text']",
-          "input:where(:not([type]))",
+          'input:where(:not([type]))',
           "[type='email']",
           "[type='url']",
           "[type='password']",
@@ -308,21 +308,19 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         base: [`[type='file']:focus`],
         class: null,
         styles: {
-          outline: [
-            `1px solid ButtonText`,
-            `1px auto -webkit-focus-ring-color`
-          ],
+          outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
         },
       },
     ]
 
-    const getStrategyRules = (strategy) => rules
-      .map((rule) => {
-        if (rule[strategy] === null) return null
+    const getStrategyRules = (strategy) =>
+      rules
+        .map((rule) => {
+          if (rule[strategy] === null) return null
 
-        return { [rule[strategy]]: rule.styles }
-      })
-      .filter(Boolean)
+          return { [rule[strategy]]: rule.styles }
+        })
+        .filter(Boolean)
 
     if (strategy.includes('base')) {
       addBase(getStrategyRules('base'))
