@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Fix date time bottom spacing on MacOS Safari ([#146](https://github.com/tailwindlabs/tailwindcss-forms/pull/146))
 
 ## [0.5.5] - 2023-08-22
 
