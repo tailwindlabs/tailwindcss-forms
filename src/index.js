@@ -107,6 +107,17 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
+        // In Safari on macOS date time inputs that are set to `display: block` have unexpected
+        // extra bottom spacing. This can be corrected by setting the `::-webkit-datetime-edit`
+        // pseudo-element to `display: inline-flex`, instead of the browser default of
+        // `display: inline-block`.
+        base: ['::-webkit-datetime-edit'],
+        class: ['.form-input::-webkit-datetime-edit'],
+        styles: {
+          display: 'inline-flex',
+        },
+      },
+      {
         // In Safari on macOS date time inputs are 4px taller than normal inputs
         // This is because there is extra padding on the datetime-edit and datetime-edit-{part}-field pseudo elements
         // See https://github.com/tailwindlabs/tailwindcss-forms/issues/95
