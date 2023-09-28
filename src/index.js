@@ -129,6 +129,7 @@ function rulesValueBuilder(theme) {
       'forms.checkboxCheckedBackgroundFillColor',
       colors.white
     ),
+    checkboxCheckedBackgroundColor: theme('forms.checkboxCheckedBackgroundColor', `currentColor`),
     checkboxCheckedBackgroundImage: theme(
       'forms.checkboxCheckedBackgroundImage',
       `url("${svgToDataUri(
