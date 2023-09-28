@@ -200,7 +200,7 @@ function rulesValueBuilder(theme) {
   }
 }
 
-const forms = plugin.withOptions(function (options = { strategy: undefined, rule: undefined }) {
+const forms = plugin.withOptions(function (options = { strategy: undefined }) {
   return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
 
