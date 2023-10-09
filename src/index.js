@@ -9,9 +9,25 @@ function resolveColor(color, opacityVariableName) {
   return color.replace('<alpha-value>', `var(${opacityVariableName}, 1)`)
 }
 
-const forms = plugin.withOptions(function (options = { strategy: undefined }) {
+/**
+ * @template T
+ * @param {boolean} bool
+ * @param {T} value
+ */
+function maybe(bool, value) {
+  return bool ? value : undefined
+}
+
+function getEmptyRule() {
+  return { base: [], class: [], styles: {} }
+}
+
+const forms = plugin.withOptions(function (
+  options = { strategy: undefined, disableOutlines: undefined }
+) {
   return function ({ addBase, addComponents, theme }) {
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
+    const disableOutlines = options.disableOutlines === undefined ? false : options.disableOutlines
 
     const rules = [
       {
@@ -50,24 +66,25 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'font-size': baseFontSize,
           'line-height': baseLineHeight,
           '--tw-shadow': '0 0 #0000',
-          '&:focus': {
-            outline: '2px solid transparent',
-            'outline-offset': '2px',
-            '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
-            '--tw-ring-offset-width': '0px',
-            '--tw-ring-offset-color': '#fff',
-            '--tw-ring-color': resolveColor(
-              theme('colors.blue.600', colors.blue[600]),
-              '--tw-ring-opacity'
-            ),
-            '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
-            '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
-            'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
-            'border-color': resolveColor(
-              theme('colors.blue.600', colors.blue[600]),
-              '--tw-border-opacity'
-            ),
-          },
+          '&:focus':
+            maybe({
+              outline: '2px solid transparent',
+              'outline-offset': '2px',
+              '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
+              '--tw-ring-offset-width': '0px',
+              '--tw-ring-offset-color': '#fff',
+              '--tw-ring-color': resolveColor(
+                theme('colors.blue.600', colors.blue[600]),
+                '--tw-ring-opacity'
+              ),
+              '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
+              '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
+              'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
+              'border-color': resolveColor(
+                theme('colors.blue.600', colors.blue[600]),
+                '--tw-border-opacity'
+              ),
+            }) || {},
         },
       },
       {
@@ -215,7 +232,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'border-radius': '100%',
         },
       },
-      {
+      maybe(!disableOutlines, {
         base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
@@ -232,7 +249,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
           'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)`,
         },
-      },
+      }) || getEmptyRule(),
       {
         base: [`[type='checkbox']:checked`, `[type='radio']:checked`],
         class: ['.form-checkbox:checked', '.form-radio:checked'],
@@ -315,13 +332,13 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'line-height': 'inherit',
         },
       },
-      {
+      maybe(!disableOutlines, {
         base: [`[type='file']:focus`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
         },
-      },
+      }) || getEmptyRule(),
     ]
 
     const getStrategyRules = (strategy) =>

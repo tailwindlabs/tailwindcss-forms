@@ -113,6 +113,7 @@ plugins: [
   require("@tailwindcss/forms")({
     strategy: 'base', // only generate global styles
     strategy: 'class', // only generate classes
+    disableOutlines: true, // don't generate outlines and rings, defaults to false
   }),
 ],
 ```
@@ -120,3 +121,5 @@ plugins: [
 When using the `base` strategy, form elements are styled globally, and no `form-{name}` classes are generated.
 
 When using the `class` strategy, form elements are not styled globally, and instead must be styled using the generated `form-{name}` classes.
+
+When `disableOutlines` is set to `true`, this plugin won't generate any outlines and rings in focused states.
