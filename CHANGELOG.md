@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Use normal `checkbox` and `radio` appearance in `forced-colors` mode ([#152](https://github.com/tailwindlabs/tailwindcss-forms/pull/152))
 
 ## [0.5.6] - 2023-08-28
 
