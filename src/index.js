@@ -50,7 +50,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           'font-size': baseFontSize,
           'line-height': baseLineHeight,
           '--tw-shadow': '0 0 #0000',
-          '&:focus': {
+          '&:focus-visible': {
             outline: '2px solid transparent',
             'outline-offset': '2px',
             '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
@@ -216,8 +216,8 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
-        class: ['.form-checkbox:focus', '.form-radio:focus'],
+        base: [`[type='checkbox']:focus-visible`, `[type='radio']:focus-visible`],
+        class: ['.form-checkbox:focus-visible', '.form-radio:focus-visible'],
         styles: {
           outline: '2px solid transparent',
           'outline-offset': '2px',
@@ -273,15 +273,15 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       {
         base: [
           `[type='checkbox']:checked:hover`,
-          `[type='checkbox']:checked:focus`,
+          `[type='checkbox']:checked:focus-visible`,
           `[type='radio']:checked:hover`,
-          `[type='radio']:checked:focus`,
+          `[type='radio']:checked:focus-visible`,
         ],
         class: [
           '.form-checkbox:checked:hover',
-          '.form-checkbox:checked:focus',
+          '.form-checkbox:checked:focus-visible',
           '.form-radio:checked:hover',
-          '.form-radio:checked:focus',
+          '.form-radio:checked:focus-visible',
         ],
         styles: {
           'border-color': 'transparent',
@@ -307,8 +307,8 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:indeterminate:hover`, `[type='checkbox']:indeterminate:focus`],
-        class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus'],
+        base: [`[type='checkbox']:indeterminate:hover`, `[type='checkbox']:indeterminate:focus-visible`],
+        class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus-visible'],
         styles: {
           'border-color': 'transparent',
           'background-color': 'currentColor',
@@ -328,7 +328,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='file']:focus`],
+        base: [`[type='file']:focus-visible`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
