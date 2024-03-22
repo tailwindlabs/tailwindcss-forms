@@ -4,6 +4,10 @@ on:
   push:
     branches: [master]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,11 +44,11 @@ jobs:
         id: vars
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
-      - name: "Version based on commit: 0.0.0-insiders.${{ steps.vars.outputs.sha_short }}"
+      - name: 'Version based on commit: 0.0.0-insiders.${{ steps.vars.outputs.sha_short }}'
         run: npm version 0.0.0-insiders.${{ steps.vars.outputs.sha_short }} --force --no-git-tag-version
 
       - name: Publish
-        run: npm publish --tag insiders
+        run: npm publish --provenance --tag insiders
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
