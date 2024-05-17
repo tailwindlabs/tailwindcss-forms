@@ -24,6 +24,7 @@
     "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.6",
     "concurrently": "^5.3.0",
     "live-server": "^1.2.2",
