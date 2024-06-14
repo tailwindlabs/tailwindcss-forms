@@ -216,7 +216,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:where(input):focus`, `[type='radio']:where(input):focus`],
+        base: [`[type='checkbox']:focus:where(input)`, `[type='radio']:focus:where(input)`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
           outline: '2px solid transparent',
@@ -234,7 +234,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:where(input):checked`, `[type='radio']:where(input):checked`],
+        base: [`[type='checkbox']:checked:where(input)`, `[type='radio']:checked:where(input)`],
         class: ['.form-checkbox:checked', '.form-radio:checked'],
         styles: {
           'border-color': `transparent`,
@@ -245,7 +245,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:where(input):checked`],
+        base: [`[type='checkbox']:checked:where(input)`],
         class: ['.form-checkbox:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -258,7 +258,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='radio']:where(input):checked`],
+        base: [`[type='radio']:checked:where(input)`],
         class: ['.form-radio:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -272,10 +272,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: [
-          `[type='checkbox']:where(input):checked:hover`,
-          `[type='checkbox']:where(input):checked:focus`,
-          `[type='radio']:where(input):checked:hover`,
-          `[type='radio']:where(input):checked:focus`,
+          `[type='checkbox']:checked:hover:where(input)`,
+          `[type='checkbox']:checked:focus:where(input)`,
+          `[type='radio']:checked:hover:where(input)`,
+          `[type='radio']:checked:focus:where(input)`,
         ],
         class: [
           '.form-checkbox:checked:hover',
@@ -289,7 +289,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox':where(input):indeterminate`],
+        base: [`[type='checkbox':indeterminate:where(input)`],
         class: ['.form-checkbox:indeterminate'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -307,7 +307,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:where(input):indeterminate:hover`, `[type='checkbox']:where(input):indeterminate:focus`],
+        base: [`[type='checkbox']:indeterminate:hover:where(input)`, `[type='checkbox']:indeterminate:focus:where(input)`],
         class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus'],
         styles: {
           'border-color': 'transparent',
@@ -328,7 +328,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='file']:where(input):focus`],
+        base: [`[type='file']:focus:where(input)`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
