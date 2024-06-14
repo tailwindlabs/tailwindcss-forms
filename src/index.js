@@ -328,7 +328,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='file']:focus)`],
+        base: [`input:where([type='file']):focus`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
