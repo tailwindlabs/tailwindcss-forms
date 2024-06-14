@@ -289,7 +289,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox':indeterminate:where(input)`],
+        base: [`[type='checkbox']:indeterminate:where(input)`],
         class: ['.form-checkbox:indeterminate'],
         styles: {
           'background-image': `url("${svgToDataUri(
