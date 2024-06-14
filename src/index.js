@@ -16,20 +16,20 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
     const rules = [
       {
         base: [
-          "input:where([type='text'])",
-          "input:where(:not([type]))",
-          "input:where([type='email'])",
-          "input:where([type='url'])",
-          "input:where([type='password'])",
-          "input:where([type='number'])",
-          "input:where([type='date'])",
-          "input:where([type='datetime-local'])",
-          "input:where([type='month'])",
-          "input:where([type='search'])",
-          "input:where([type='tel'])",
-          "input:where([type='time'])",
-          "input:where([type='week'])",
-          '[multiple]',
+          "[type='text']:where(input)",
+          'input:where(:not([type]))',
+          "[type='email']:where(input)",
+          "[type='url']:where(input)",
+          "[type='password']:where(input)",
+          "[type='number']:where(input)",
+          "[type='date']:where(input)",
+          "[type='datetime-local']:where(input)",
+          "[type='month']:where(input)",
+          "[type='search']:where(input)",
+          "[type='tel']:where(input)",
+          "[type='time']:where(input)",
+          "[type='week']:where(input)",
+          '[multiple]:where(select)',
           'textarea',
           'select',
         ],
@@ -166,7 +166,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: ['select:where([multiple])', '[size]:where(select:not([size="1"]))'],
+        base: ['[multiple]:where(select)', '[size]:where(select:not([size="1"]))'],
         class: ['.form-select:where([size]:not([size="1"]))'],
         styles: {
           'background-image': 'initial',
@@ -178,7 +178,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox'])`, `input:where([type='radio'])`],
+        base: [`[type='checkbox']:where(input)`, `[type='radio']:where(input)`],
         class: ['.form-checkbox', '.form-radio'],
         styles: {
           appearance: 'none',
@@ -202,21 +202,21 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox'])`],
+        base: [`[type='checkbox']:where(input)`],
         class: ['.form-checkbox'],
         styles: {
           'border-radius': borderRadius['none'],
         },
       },
       {
-        base: [`input:where([type='radio'])`],
+        base: [`[type='radio']:where(input)`],
         class: ['.form-radio'],
         styles: {
           'border-radius': '100%',
         },
       },
       {
-        base: [`input:where([type='checkbox']):focus`, `input:where([type='radio']):focus`],
+        base: [`[type='checkbox']:where(input):focus`, `[type='radio']:where(input):focus`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
           outline: '2px solid transparent',
@@ -234,7 +234,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox']):checked`, `input:where([type='radio']):checked`],
+        base: [`[type='checkbox']:where(input):checked`, `[type='radio']:where(input):checked`],
         class: ['.form-checkbox:checked', '.form-radio:checked'],
         styles: {
           'border-color': `transparent`,
@@ -245,7 +245,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox']):checked`],
+        base: [`[type='checkbox']:where(input):checked`],
         class: ['.form-checkbox:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -258,7 +258,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='radio']):checked`],
+        base: [`[type='radio']:where(input):checked`],
         class: ['.form-radio:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -272,10 +272,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: [
-          `input:where([type='checkbox']):checked:hover`,
-          `input:where([type='checkbox']):checked:focus`,
-          `input:where([type='radio']):checked:hover`,
-          `input:where([type='radio']):checked:focus`,
+          `[type='checkbox']:where(input):checked:hover`,
+          `[type='checkbox']:where(input):checked:focus`,
+          `[type='radio']:where(input):checked:hover`,
+          `[type='radio']:where(input):checked:focus`,
         ],
         class: [
           '.form-checkbox:checked:hover',
@@ -289,7 +289,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox']):indeterminate`],
+        base: [`[type='checkbox':where(input):indeterminate`],
         class: ['.form-checkbox:indeterminate'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -307,7 +307,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='checkbox']):indeterminate:hover`, `input:where([type='checkbox']):indeterminate:focus`],
+        base: [`[type='checkbox']:where(input):indeterminate:hover`, `[type='checkbox']:where(input):indeterminate:focus`],
         class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus'],
         styles: {
           'border-color': 'transparent',
@@ -315,7 +315,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='file'])`],
+        base: [`[type='file']:where(input)`],
         class: null,
         styles: {
           background: 'unset',
@@ -328,7 +328,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`input:where([type='file']):focus`],
+        base: [`[type='file']:where(input):focus`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
