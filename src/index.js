@@ -9,9 +9,22 @@ function resolveColor(color, opacityVariableName) {
   return color.replace('<alpha-value>', `var(${opacityVariableName}, 1)`)
 }
 
+function applyImportant(selector, styles, importantOption) {
+  if (importantOption === true) {
+    return [selector, Object.fromEntries(
+      Object.entries(styles).map(([key, value]) => [key, `${value} !important`])
+    )];
+  }
+  if (typeof importantOption === 'string') {
+    return [`${importantOption} ${selector}`, styles];  // Apply the specificity class to the selector
+  }
+  return [selector, styles];
+}
+
 const forms = plugin.withOptions(function (options = { strategy: undefined }) {
-  return function ({ addBase, addComponents, theme }) {
+  return function ({ addBase, addComponents, theme, config }) {
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
+    const importantOption = config('important');
 
     const rules = [
       {
@@ -339,9 +352,15 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
     const getStrategyRules = (strategy) =>
       rules
         .map((rule) => {
-          if (rule[strategy] === null) return null
+          if (rule[strategy] === null) return null;
 
-          return { [rule[strategy]]: rule.styles }
+          const styledRules = {};
+          for (const selector of rule[strategy]) {
+            const [updatedSelector, updatedStyles] = applyImportant(selector, rule.styles, importantOption);
+            styledRules[updatedSelector] = updatedStyles;
+          }
+
+          return styledRules;
         })
         .filter(Boolean)
 
