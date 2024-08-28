@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Update peer dependency versions to include Tailwind `4.0.0-alpha.20` with support for this plugin ([#163](https://github.com/tailwindlabs/tailwindcss-forms/pull/163))
 
 ## [0.5.7] - 2023-11-10
 
