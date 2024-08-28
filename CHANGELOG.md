@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Update `tailwindcss` peer dependency to include `4.0.0-alpha.20` which adds support for this plugin ([#163](https://github.com/tailwindlabs/tailwindcss-forms/pull/163))
+- Support installing with alpha versions of Tailwind CSS v4 ([#163](https://github.com/tailwindlabs/tailwindcss-forms/pull/163))
 
 ## [0.5.7] - 2023-11-10
 
