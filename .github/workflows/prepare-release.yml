@@ -6,9 +6,6 @@ on:
     tags:
       - 'v*'
 
-env:
-  CI: true
-
 permissions:
   contents: read
 
@@ -33,10 +30,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Test
         run: npm test
-        env:
-          CI: true
 
       - name: Resolve version
         id: vars

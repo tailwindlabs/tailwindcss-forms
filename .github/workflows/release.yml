@@ -26,10 +26,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Test
         run: npm test
-        env:
-          CI: true
 
       - name: Calculate environment variables
         run: |
