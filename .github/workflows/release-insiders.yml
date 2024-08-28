@@ -2,7 +2,7 @@ name: Release Insiders
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 permissions:
   contents: read
@@ -14,31 +14,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12]
+        node-version: [22]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Use cached node_modules
-        id: cache
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: nodeModules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
-          restore-keys: |
-            nodeModules-
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
-        env:
-          CI: true
+          cache: 'npm'
 
       - name: Resolve version
         id: vars

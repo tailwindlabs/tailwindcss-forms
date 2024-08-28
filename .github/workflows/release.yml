@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      - name: Test
+        run: npm test
+        env:
+          CI: true
+
+      - name: Calculate environment variables
+        run: |
+          echo "RELEASE_CHANNEL=$(npm run release-channel --silent)" >> $GITHUB_ENV
+
+      - name: Publish
+        run: npm publish --provenance --tag ${{ env.RELEASE_CHANNEL }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
