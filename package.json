@@ -18,7 +18,8 @@
     "dev": "concurrently \"npm run serve\" \"npm run watch\"",
     "serve": "live-server .",
     "watch": "npm run build -- -w",
-    "build": "tailwindcss -o dist/tailwind.css"
+    "build": "tailwindcss -o dist/tailwind.css",
+    "test": "exit 0"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20"
