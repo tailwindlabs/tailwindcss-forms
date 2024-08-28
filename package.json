@@ -19,7 +19,9 @@
     "serve": "live-server .",
     "watch": "npm run build -- -w",
     "build": "tailwindcss -o dist/tailwind.css",
-    "test": "exit 0"
+    "test": "exit 0",
+    "release-channel": "node ./scripts/release-channel.js",
+    "release-notes": "node ./scripts/release-notes.js"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20"
