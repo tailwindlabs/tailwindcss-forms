@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Fallback to static chevron color if theme is using variables ([#167](https://github.com/tailwindlabs/tailwindcss-forms/pull/167))
 
 ## [0.5.8] - 2024-08-28
 
