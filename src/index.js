@@ -11,6 +11,16 @@ function resolveColor(color, opacityVariableName) {
 
 const forms = plugin.withOptions(function (options = { strategy: undefined }) {
   return function ({ addBase, addComponents, theme }) {
+    function resolveChevronColor(color, fallback) {
+      let resolved = theme(color)
+
+      if (!resolved || resolved.includes('var(')) {
+        return fallback
+      }
+
+      return resolved.replace('<alpha-value>', '1')
+    }
+
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
 
     const rules = [
@@ -153,9 +163,9 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         class: ['.form-select'],
         styles: {
           'background-image': `url("${svgToDataUri(
-            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${resolveColor(
-              theme('colors.gray.500', colors.gray[500]),
-              '--tw-stroke-opacity'
+            `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="${resolveChevronColor(
+              'colors.gray.500',
+              colors.gray[500]
             )}" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>`
           )}")`,
           'background-position': `right ${spacing[2]} center`,
