@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/dist/tailwind.css" />
   </head>
   <body>
-    <div class="antialiased text-gray-900 px-6">
-      <div class="max-w-xl mx-auto py-12 divide-y md:max-w-4xl">
+    <div class="px-6 text-gray-900 antialiased">
+      <div class="mx-auto max-w-xl divide-y py-12 md:max-w-4xl">
         <div class="py-8">
           <h1 class="text-4xl font-bold">@tailwindcss/forms examples</h1>
           <p class="mt-2 text-lg text-gray-600">
@@ -41,7 +41,7 @@
               </label>
               <label class="block">
                 <span class="text-gray-700">What type of event is it?</span>
-                <select class="block w-full mt-1">
+                <select class="mt-1 block w-full">
                   <option>Corporate event</option>
                   <option>Wedding</option>
                   <option>Birthday</option>
@@ -95,7 +95,7 @@
               <label class="block">
                 <span class="text-gray-700">What type of event is it?</span>
                 <select
-                  class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 >
                   <option>Corporate event</option>
                   <option>Wedding</option>
@@ -116,7 +116,7 @@
                     <label class="inline-flex items-center">
                       <input
                         type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:ring-offset-0"
                         checked
                       />
                       <span class="ml-2">Email me news and special offers</span>
@@ -135,7 +135,7 @@
                 <span class="text-gray-700">Full name</span>
                 <input
                   type="text"
-                  class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                  class="mt-0 block w-full border-0 border-b-2 border-gray-200 px-0.5 focus:border-black focus:ring-0"
                   placeholder=""
                 />
               </label>
@@ -143,7 +143,7 @@
                 <span class="text-gray-700">Email address</span>
                 <input
                   type="email"
-                  class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                  class="mt-0 block w-full border-0 border-b-2 border-gray-200 px-0.5 focus:border-black focus:ring-0"
                   placeholder="john@example.com"
                 />
               </label>
@@ -151,13 +151,13 @@
                 <span class="text-gray-700">When is your event?</span>
                 <input
                   type="date"
-                  class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                  class="mt-0 block w-full border-0 border-b-2 border-gray-200 px-0.5 focus:border-black focus:ring-0"
                 />
               </label>
               <label class="block">
                 <span class="text-gray-700">What type of event is it?</span>
                 <select
-                  class="block w-full mt-0 pl-0.5 pr-7 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                  class="mt-0 block w-full border-0 border-b-2 border-gray-200 pl-0.5 pr-7 focus:border-black focus:ring-0"
                 >
                   <option>Corporate event</option>
                   <option>Wedding</option>
@@ -168,7 +168,7 @@
               <label class="block">
                 <span class="text-gray-700">Additional details</span>
                 <textarea
-                  class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black"
+                  class="mt-0 block w-full border-0 border-b-2 border-gray-200 px-0.5 focus:border-black focus:ring-0"
                   rows="2"
                 ></textarea>
               </label>
@@ -178,7 +178,7 @@
                     <label class="inline-flex items-center">
                       <input
                         type="checkbox"
-                        class="border-gray-300 border-2 text-black focus:border-gray-300 focus:ring-black"
+                        class="border-2 border-gray-300 text-black focus:border-gray-300 focus:ring-black"
                       />
                       <span class="ml-2">Email me news and special offers</span>
                     </label>
@@ -196,7 +196,7 @@
                 <span class="text-gray-700">Full name</span>
                 <input
                   type="text"
-                  class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                  class="mt-1 block w-full rounded-md border-transparent bg-gray-100 focus:border-gray-500 focus:bg-white focus:ring-0"
                   placeholder=""
                 />
               </label>
@@ -204,7 +204,7 @@
                 <span class="text-gray-700">Email address</span>
                 <input
                   type="email"
-                  class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                  class="mt-1 block w-full rounded-md border-transparent bg-gray-100 focus:border-gray-500 focus:bg-white focus:ring-0"
                   placeholder="john@example.com"
                 />
               </label>
@@ -212,13 +212,13 @@
                 <span class="text-gray-700">When is your event?</span>
                 <input
                   type="date"
-                  class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                  class="mt-1 block w-full rounded-md border-transparent bg-gray-100 focus:border-gray-500 focus:bg-white focus:ring-0"
                 />
               </label>
               <label class="block">
                 <span class="text-gray-700">What type of event is it?</span>
                 <select
-                  class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                  class="mt-1 block w-full rounded-md border-transparent bg-gray-100 focus:border-gray-500 focus:bg-white focus:ring-0"
                 >
                   <option>Corporate event</option>
                   <option>Wedding</option>
@@ -229,7 +229,7 @@
               <label class="block">
                 <span class="text-gray-700">Additional details</span>
                 <textarea
-                  class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                  class="mt-1 block w-full rounded-md border-transparent bg-gray-100 focus:border-gray-500 focus:bg-white focus:ring-0"
                   rows="3"
                 ></textarea>
               </label>
@@ -239,7 +239,7 @@
                     <label class="inline-flex items-center">
                       <input
                         type="checkbox"
-                        class="rounded bg-gray-200 border-transparent focus:border-transparent focus:bg-gray-200 text-gray-700 focus:ring-1 focus:ring-offset-2 focus:ring-gray-500"
+                        class="rounded border-transparent bg-gray-200 text-gray-700 focus:border-transparent focus:bg-gray-200 focus:ring-1 focus:ring-gray-500 focus:ring-offset-2"
                       />
                       <span class="ml-2">Email me news and special offers</span>
                     </label>
