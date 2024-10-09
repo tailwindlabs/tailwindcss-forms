@@ -55,7 +55,7 @@ Every element has been normalized/reset to a simple visually consistent style th
 
 ```html
 <!-- You can actually customize padding on a select element now: -->
-<select class="px-4 py-3 rounded-full">
+<select class="rounded-full px-4 py-3">
   <!-- ... -->
 </select>
 
@@ -70,9 +70,9 @@ More customization examples and best practices coming soon.
 In addition to the global styles, we also generate a set of corresponding classes which can be used to explicitly apply the form styles to an element. This can be useful in situations where you need to make a non-form element, such as a `<div>`, look like a form element.
 
 ```html
-<input type="email" class="form-input px-4 py-3 rounded-full">
+<input type="email" class="form-input rounded-full px-4 py-3" />
 
-<select class="form-select px-4 py-3 rounded-full">
+<select class="form-select rounded-full px-4 py-3">
   <!-- ... -->
 </select>
 
