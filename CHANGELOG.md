@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- Nothing yet!
+### Fixed
+
+- Support installing with beta versions of Tailwind CSS v4 ([#163](https://github.com/tailwindlabs/tailwindcss-forms/pull/163))
 
 ## [0.5.9] - 2024-09-05
 
