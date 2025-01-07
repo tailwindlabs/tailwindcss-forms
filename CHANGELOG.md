@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Nothing yet!
+
+## [0.5.10] - 2025-01-07
+
 ### Fixed
 
 - Support installing with beta versions of Tailwind CSS v4 ([#163](https://github.com/tailwindlabs/tailwindcss-forms/pull/163))
@@ -162,7 +166,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release!
 
-[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.9...HEAD
+[unreleased]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.10...HEAD
+[0.5.10]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.9...v0.5.10
 [0.5.9]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.8...v0.5.9
 [0.5.8]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.7...v0.5.8
 [0.5.7]: https://github.com/tailwindlabs/tailwindcss-forms/compare/v0.5.6...v0.5.7
