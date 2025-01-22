@@ -10,7 +10,7 @@ function resolveColor(color, opacityVariableName) {
 }
 
 const forms = plugin.withOptions(function (options = { strategy: undefined }) {
-  return function ({ addBase, addComponents, theme }) {
+  return function ({ addBase, addComponents, theme, config }) {
     function resolveChevronColor(color, fallback) {
       let resolved = theme(color)
 
@@ -354,6 +354,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
           return { [rule[strategy]]: rule.styles }
         })
         .filter(Boolean)
+
+    if (config?..corePlugins?.preflight === false) {
+      return
+    }
 
     if (strategy.includes('base')) {
       addBase(getStrategyRules('base'))
