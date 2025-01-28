@@ -355,7 +355,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         })
         .filter(Boolean)
 
-    if (config?..corePlugins?.preflight === false) {
+    if (config?.corePlugins?.preflight === false) {
       return
     }
 
