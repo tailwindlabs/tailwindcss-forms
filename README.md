@@ -2,6 +2,11 @@
 
 A plugin that provides a basic reset for form styles that makes form elements easy to override with utilities.
 
+> [!NOTE]  
+> The plugin works fine with Tailwind CSS v4.0 as-is. You can still make use of a `tailwind.config.js` file to customize the CSS generated.
+>
+> We are hoping to do a CSS-only version in the near future once we've tackled all the post-v4 launch bugs.
+
 ## Installation
 
 Install the plugin from npm:
