@@ -10,7 +10,14 @@ Install the plugin from npm:
 npm install -D @tailwindcss/forms
 ```
 
-Then add the plugin to your `tailwind.config.js` file:
+Add the plugin inside your main `style.css` file:
+
+```diff
+@import "tailwindcss";
++@plugin "@tailwindcss/forms";
+```
+
+If you're still using **Tailwind v3**, add the plugin in your `tailwind.config.js` file:
 
 ```js
 // tailwind.config.js
@@ -106,6 +113,16 @@ Here is a complete table of the provided `form-*` classes for reference:
 Although we recommend thinking of this plugin as a "form reset" rather than a collection of form component styles, in some cases our default approach may be too heavy-handed, especially when integrating this plugin into existing projects.
 
 If generating both the global (base) styles and classes doesn't work well with your project, you can use the `strategy` option to limit the plugin to just one of these approaches.
+
+Configure the plugin in your main `style.css` like this:
+
+```css
+@plugin "@tailwindcss/forms" {
+  strategy: "class", // or "base"
+};
+```
+
+If you're still using **Tailwind v3**, configure the plugin in your `tailwind.config.js` like this:
 
 ```js
 // tailwind.config.js
