@@ -10,7 +10,7 @@ Install the plugin from npm:
 npm install -D @tailwindcss/forms
 ```
 
-Them, when using Tailwind CSS v4, add the plugin to your main stylesheet:
+Then, when using Tailwind CSS v4, add the plugin to your main stylesheet:
 
 ```css
 /* app.css */
