@@ -10,14 +10,14 @@ Install the plugin from npm:
 npm install -D @tailwindcss/forms
 ```
 
-Add the plugin inside your main `style.css` file:
+Add the plugin to your main stylesheet:
 
-```diff
+```css
 @import "tailwindcss";
-+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/forms";
 ```
 
-If you're still using **Tailwind v3**, add the plugin in your `tailwind.config.js` file:
+If you're still using **Tailwind v3**, add the plugin to your `tailwind.config.js` file:
 
 ```js
 // tailwind.config.js
@@ -114,15 +114,17 @@ Although we recommend thinking of this plugin as a "form reset" rather than a co
 
 If generating both the global (base) styles and classes doesn't work well with your project, you can use the `strategy` option to limit the plugin to just one of these approaches.
 
-Configure the plugin in your main `style.css` like this:
+When using Tailwind CSS v4, configure the plugin in your main stylesheet:
 
 ```css
+/* app.css */
 @plugin "@tailwindcss/forms" {
-  strategy: "class", // or "base"
-};
+  strategy: "base"; /* only generate global styles; or */
+  strategy: "class"; /* only generate classes */
+}
 ```
 
-If you're still using **Tailwind v3**, configure the plugin in your `tailwind.config.js` like this:
+If you are still using **Tailwind CSS v3**, configure the plugin in your `tailwind.config.js` file:
 
 ```js
 // tailwind.config.js
