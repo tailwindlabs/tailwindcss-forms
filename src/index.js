@@ -26,20 +26,20 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
     const rules = [
       {
         base: [
-          "[type='text']",
+          "input:where([type='text'])",
           'input:where(:not([type]))',
-          "[type='email']",
-          "[type='url']",
-          "[type='password']",
-          "[type='number']",
-          "[type='date']",
-          "[type='datetime-local']",
-          "[type='month']",
-          "[type='search']",
-          "[type='tel']",
-          "[type='time']",
-          "[type='week']",
-          '[multiple]',
+          "input:where([type='email'])",
+          "input:where([type='url'])",
+          "input:where([type='password'])",
+          "input:where([type='number'])",
+          "input:where([type='date'])",
+          "input:where([type='datetime-local'])",
+          "input:where([type='month'])",
+          "input:where([type='search'])",
+          "input:where([type='tel'])",
+          "input:where([type='time'])",
+          "input:where([type='week'])",
+          'select:where([multiple])',
           'textarea',
           'select',
         ],
@@ -176,7 +176,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: ['[multiple]', '[size]:where(select:not([size="1"]))'],
+        base: ['select:where([multiple])', 'select:where([size]:not([size="1"]))'],
         class: ['.form-select:where([size]:not([size="1"]))'],
         styles: {
           'background-image': 'initial',
@@ -188,7 +188,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']`, `[type='radio']`],
+        base: [`input:where([type='checkbox'])`, `input:where([type='radio'])`],
         class: ['.form-checkbox', '.form-radio'],
         styles: {
           appearance: 'none',
@@ -212,21 +212,21 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']`],
+        base: [`input:where([type='checkbox'])`],
         class: ['.form-checkbox'],
         styles: {
           'border-radius': borderRadius['none'],
         },
       },
       {
-        base: [`[type='radio']`],
+        base: [`input:where([type='radio'])`],
         class: ['.form-radio'],
         styles: {
           'border-radius': '100%',
         },
       },
       {
-        base: [`[type='checkbox']:focus`, `[type='radio']:focus`],
+        base: [`input:where([type='checkbox']):focus`, `input:where([type='radio']):focus`],
         class: ['.form-checkbox:focus', '.form-radio:focus'],
         styles: {
           outline: '2px solid transparent',
@@ -244,7 +244,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:checked`, `[type='radio']:checked`],
+        base: [`input:where([type='checkbox']):checked`, `input:where([type='radio']):checked`],
         class: ['.form-checkbox:checked', '.form-radio:checked'],
         styles: {
           'border-color': `transparent`,
@@ -255,7 +255,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:checked`],
+        base: [`input:where([type='checkbox']):checked`],
         class: ['.form-checkbox:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -268,7 +268,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='radio']:checked`],
+        base: [`input:where([type='radio']):checked`],
         class: ['.form-radio:checked'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -282,10 +282,10 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
       },
       {
         base: [
-          `[type='checkbox']:checked:hover`,
-          `[type='checkbox']:checked:focus`,
-          `[type='radio']:checked:hover`,
-          `[type='radio']:checked:focus`,
+          `input:where([type='checkbox']):checked:hover`,
+          `input:where([type='checkbox']):checked:focus`,
+          `input:where([type='radio']):checked:hover`,
+          `input:where([type='radio']):checked:focus`,
         ],
         class: [
           '.form-checkbox:checked:hover',
@@ -299,7 +299,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:indeterminate`],
+        base: [`input:where([type='checkbox']):indeterminate`],
         class: ['.form-checkbox:indeterminate'],
         styles: {
           'background-image': `url("${svgToDataUri(
@@ -317,7 +317,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='checkbox']:indeterminate:hover`, `[type='checkbox']:indeterminate:focus`],
+        base: [`input:where([type='checkbox']):indeterminate:hover`, `input:where([type='checkbox']):indeterminate:focus`],
         class: ['.form-checkbox:indeterminate:hover', '.form-checkbox:indeterminate:focus'],
         styles: {
           'border-color': 'transparent',
@@ -325,7 +325,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='file']`],
+        base: [`input:where([type='file'])`],
         class: null,
         styles: {
           background: 'unset',
@@ -338,7 +338,7 @@ const forms = plugin.withOptions(function (options = { strategy: undefined }) {
         },
       },
       {
-        base: [`[type='file']:focus`],
+        base: [`input:where([type='file']):focus`],
         class: null,
         styles: {
           outline: [`1px solid ButtonText`, `1px auto -webkit-focus-ring-color`],
