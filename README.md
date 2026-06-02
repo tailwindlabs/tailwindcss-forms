@@ -67,9 +67,11 @@ Every element has been normalized/reset to a simple visually consistent style th
   <!-- ... -->
 </select>
 
-<!-- Or change a checkbox color using text color utilities: -->
-<input type="checkbox" class="rounded text-pink-500" />
+<!-- Or give a checked checkbox its own background color: -->
+<input type="checkbox" class="rounded checked:bg-pink-500" />
 ```
+
+If you give checkboxes or radios an unchecked background with `bg-*`, use `checked:bg-*` for the checked color. These controls use custom appearance styles, so native `accent-*` utilities do not control the rendered checked background.
 
 More customization examples and best practices coming soon.
 
@@ -84,7 +86,7 @@ In addition to the global styles, we also generate a set of corresponding classe
   <!-- ... -->
 </select>
 
-<input type="checkbox" class="form-checkbox rounded text-pink-500" />
+<input type="checkbox" class="form-checkbox rounded checked:bg-pink-500" />
 ```
 
 Here is a complete table of the provided `form-*` classes for reference:
